@@ -1,0 +1,7 @@
+Windows 95 +PLUS+ Icon Pack #1, de aconfuseddragon — https://aconfuseddragon.itch.io/windows-95-plus-1
+Licença: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Pixel art 32x32, 16 cores,
+"paródia vaporwave" dos ícones do Windows 95.
+Só 2 ícones do pacote vão no repositório, sem alteração:
+  icons_32x32/chrome.png   -> ícone do Google Chrome (ferramentas/fix_chrome_icon.py)
+  icons_32x32/discord.png  -> ícone do Discord/Vesktop (ferramentas/fix_app_icons.py)
+O pacote inteiro é grátis no itch.io (link acima).

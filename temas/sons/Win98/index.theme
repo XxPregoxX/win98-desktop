@@ -1,0 +1,5 @@
+[Sound Theme]
+Name=Win98
+Comment=Sons estilo Windows 98 (sintetizados)
+Inherits=freedesktop
+Directories=.

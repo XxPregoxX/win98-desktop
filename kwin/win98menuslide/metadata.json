@@ -1,0 +1,23 @@
+{
+    "KPackageStructure": "KWin/Effect",
+    "KPlugin": {
+        "Category": "Appearance",
+        "Description": "Windows 98 style menu slide-in (context menus, popups)",
+        "EnabledByDefault": true,
+        "Id": "win98menuslide",
+        "License": "GPL-2.0-or-later",
+        "Name": "Win98 Menu Slide",
+        "Authors": [
+            {
+                "Name": "Leonardo Borges"
+            },
+            {
+                "Name": "Vlad Zahorodnii (efeitos originais do KWin)",
+                "Email": "vlad.zahorodnii@kde.org"
+            }
+        ],
+        "Website": "https://github.com/XxPregoxX/win98-desktop"
+    },
+    "X-Plasma-API": "javascript",
+    "X-KDE-Ordering": 60
+}

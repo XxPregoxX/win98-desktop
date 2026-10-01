@@ -1,0 +1,21 @@
+{
+    "KPackageStructure": "KWin/Aurorae",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Leonardo Borges"
+            }
+        ],
+        "Category": "Plasma 6 Window Decorations",
+        "Description": "Windows 98 style window decoration - navy title bars and 3D beveled buttons",
+        "EnabledByDefault": true,
+        "Id": "Win98",
+        "License": "GPL-3.0-or-later",
+        "Name": "Windows 98",
+        "ServiceTypes": [
+            "KWin/Aurorae"
+        ],
+        "Version": "1.0",
+        "Website": "https://github.com/XxPregoxX/win98-desktop"
+    }
+}

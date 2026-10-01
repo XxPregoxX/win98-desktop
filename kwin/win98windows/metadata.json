@@ -1,0 +1,24 @@
+{
+    "KPackageStructure": "KWin/Effect",
+    "KPlugin": {
+        "Category": "Appearance",
+        "Description": "Windows 98 style window animations: windows unroll from the title bar when opened, and the title bar zooms to the taskbar when minimized",
+        "EnabledByDefault": false,
+        "Id": "win98windows",
+        "License": "GPL-2.0-or-later",
+        "Name": "Win98 Windows",
+        "Authors": [
+            {
+                "Name": "Leonardo Borges"
+            },
+            {
+                "Name": "Vlad Zahorodnii (efeitos originais do KWin)",
+                "Email": "vlad.zahorodnii@kde.org"
+            }
+        ],
+        "Website": "https://github.com/XxPregoxX/win98-desktop"
+    },
+    "X-Plasma-API": "javascript",
+    "X-KDE-Ordering": 60,
+    "X-KWin-Exclusive-Category": "toplevel-open-close-animation"
+}

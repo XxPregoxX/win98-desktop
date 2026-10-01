@@ -1,0 +1,55 @@
+/* Tema Win98: botões [_][□][X] do Firefox, iguais aos das outras janelas.
+ *
+ * Com as abas na barra de título, o Firefox desenha os próprios botões: só o símbolo do tema
+ * de ícones, com hover redondo e o X rosa do Breeze. Aqui eles usam as mesmas imagens da
+ * decoração das janelas: as que o KDE gera da decoração Aurorae pros apps GTK
+ * (~/.config/gtk-3.0/assets, ligado nesta pasta como win98-gtk-assets/ pelo instalar.sh). Se a
+ * decoração mudar, o KDE gera de novo e o Firefox acompanha.
+ * Tamanho e espaço = os do KWin (Win98rc): ButtonWidth x ButtonHeight = 22x20, ButtonSpacing 0,
+ * TitleEdgeRightMaximized 2. As imagens são 16x16 e o KWin estica pra 22x20; o
+ * #svgView(preserveAspectRatio(none)) faz o Firefox esticar igual (sem ele, fica 20x20 no meio).
+ * Precisa de toolkit.legacyUserProfileCustomizations.stylesheets = true (user.js).
+ */
+
+.titlebar-buttonbox {
+  --titlebar-button-spacing: 0px !important;
+  --titlebar-button-end-spacing: 2px !important;
+}
+
+.titlebar-button > .toolbarbutton-icon {
+  width: 22px !important;
+  height: 20px !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  transition: none !important;
+}
+
+.titlebar-min > .toolbarbutton-icon { background-image: url("win98-gtk-assets/minimize-normal.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-min:hover > .toolbarbutton-icon { background-image: url("win98-gtk-assets/minimize-hover.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-min:hover:active > .toolbarbutton-icon { background-image: url("win98-gtk-assets/minimize-active.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-min:-moz-window-inactive > .toolbarbutton-icon { background-image: url("win98-gtk-assets/minimize-backdrop-normal.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-min:-moz-window-inactive:hover > .toolbarbutton-icon { background-image: url("win98-gtk-assets/minimize-backdrop-hover.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-min:-moz-window-inactive:hover:active > .toolbarbutton-icon { background-image: url("win98-gtk-assets/minimize-backdrop-active.svg#svgView(preserveAspectRatio(none))") !important; }
+
+.titlebar-max > .toolbarbutton-icon { background-image: url("win98-gtk-assets/maximize-normal.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-max:hover > .toolbarbutton-icon { background-image: url("win98-gtk-assets/maximize-hover.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-max:hover:active > .toolbarbutton-icon { background-image: url("win98-gtk-assets/maximize-active.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-max:-moz-window-inactive > .toolbarbutton-icon { background-image: url("win98-gtk-assets/maximize-backdrop-normal.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-max:-moz-window-inactive:hover > .toolbarbutton-icon { background-image: url("win98-gtk-assets/maximize-backdrop-hover.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-max:-moz-window-inactive:hover:active > .toolbarbutton-icon { background-image: url("win98-gtk-assets/maximize-backdrop-active.svg#svgView(preserveAspectRatio(none))") !important; }
+
+.titlebar-restore > .toolbarbutton-icon { background-image: url("win98-gtk-assets/maximized-normal.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-restore:hover > .toolbarbutton-icon { background-image: url("win98-gtk-assets/maximized-hover.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-restore:hover:active > .toolbarbutton-icon { background-image: url("win98-gtk-assets/maximized-active.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-restore:-moz-window-inactive > .toolbarbutton-icon { background-image: url("win98-gtk-assets/maximized-backdrop-normal.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-restore:-moz-window-inactive:hover > .toolbarbutton-icon { background-image: url("win98-gtk-assets/maximized-backdrop-hover.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-restore:-moz-window-inactive:hover:active > .toolbarbutton-icon { background-image: url("win98-gtk-assets/maximized-backdrop-active.svg#svgView(preserveAspectRatio(none))") !important; }
+
+.titlebar-close > .toolbarbutton-icon { background-image: url("win98-gtk-assets/close-normal.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-close:hover > .toolbarbutton-icon { background-image: url("win98-gtk-assets/close-hover.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-close:hover:active > .toolbarbutton-icon { background-image: url("win98-gtk-assets/close-active.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-close:-moz-window-inactive > .toolbarbutton-icon { background-image: url("win98-gtk-assets/close-backdrop-normal.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-close:-moz-window-inactive:hover > .toolbarbutton-icon { background-image: url("win98-gtk-assets/close-backdrop-hover.svg#svgView(preserveAspectRatio(none))") !important; }
+.titlebar-close:-moz-window-inactive:hover:active > .toolbarbutton-icon { background-image: url("win98-gtk-assets/close-backdrop-active.svg#svgView(preserveAspectRatio(none))") !important; }

@@ -1,0 +1,7 @@
+Desenhos recortados do FOXSCAPEuC v7, de Michael Walden — https://mw.rat.bz/foxscapeuc/
+(recortados por ferramentas/gen_firefox_netscape.py). Licença: CC BY-NC-SA 3.0
+(https://creativecommons.org/licenses/by-nc-sa/3.0/, texto em LICENSES/CC-BY-NC-SA-3.0.txt):
+dê crédito, sem uso comercial, derivados com a mesma licença. Segundo o autor, os desenhos vêm do
+Netscape Communicator/Navigator, do Mozilla Application Suite, do SeaMonkey e do Firefox.
+
+Artwork cropped from FOXSCAPEuC v7 by Michael Walden, licensed CC BY-NC-SA 3.0 (see above).

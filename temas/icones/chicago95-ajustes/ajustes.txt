@@ -1,0 +1,58 @@
+# Ajustes do Chicago95 que não saem de nenhum outro script (gerado comparando com a instalação
+# de referência). Caminhos dentro de terceiros/Chicago95. Aplicado por ferramentas/fix_chicago95_ajustes.py.
+#   apagar <arquivo>        tira o arquivo/link (ex.: desenho genérico que ganhava do novo)
+#   link <arquivo> <alvo>   o arquivo vira link pro alvo (relativo à pasta dele)
+link apps/scalable/dolphin.svg system-file-manager.svg
+link apps/scalable/org.kde.dolphin.svg system-file-manager.svg
+apagar categories/scalable/applications-3D.svg
+apagar categories/scalable/applications-accessories.svg
+apagar categories/scalable/applications-all.svg
+apagar categories/scalable/applications-arcade.svg
+apagar categories/scalable/applications-astronomy.svg
+apagar categories/scalable/applications-biology.svg
+apagar categories/scalable/applications-boardgames.svg
+apagar categories/scalable/applications-cardgames.svg
+apagar categories/scalable/applications-chat.svg
+apagar categories/scalable/applications-debugging.svg
+apagar categories/scalable/applications-development.svg
+apagar categories/scalable/applications-drawing.svg
+apagar categories/scalable/applications-education.svg
+apagar categories/scalable/applications-electronics.svg
+apagar categories/scalable/applications-engineering.svg
+apagar categories/scalable/applications-filesharing.svg
+apagar categories/scalable/applications-fonts.svg
+apagar categories/scalable/applications-games.svg
+apagar categories/scalable/applications-geography.svg
+apagar categories/scalable/applications-geology.svg
+apagar categories/scalable/applications-graphics.svg
+apagar categories/scalable/applications-haskell.svg
+apagar categories/scalable/applications-ide.svg
+apagar categories/scalable/applications-interfacedesign.svg
+apagar categories/scalable/applications-java.svg
+apagar categories/scalable/applications-libraries.svg
+apagar categories/scalable/applications-lisp.svg
+apagar categories/scalable/applications-mail.svg
+apagar categories/scalable/applications-mathematics.svg
+apagar categories/scalable/applications-monodevelopment.svg
+apagar categories/scalable/applications-multimedia.svg
+apagar categories/scalable/applications-ocaml.svg
+apagar categories/scalable/applications-office.svg
+apagar categories/scalable/applications-other.svg
+apagar categories/scalable/applications-painting.svg
+apagar categories/scalable/applications-perl.svg
+apagar categories/scalable/applications-photography.svg
+apagar categories/scalable/applications-physics.svg
+apagar categories/scalable/applications-profiling.svg
+apagar categories/scalable/applications-publishing.svg
+apagar categories/scalable/applications-puzzles.svg
+apagar categories/scalable/applications-python.svg
+apagar categories/scalable/applications-roleplaying.svg
+apagar categories/scalable/applications-ruby.svg
+apagar categories/scalable/applications-science.svg
+apagar categories/scalable/applications-simulation.svg
+apagar categories/scalable/applications-sports.svg
+apagar categories/scalable/applications-system.svg
+apagar categories/scalable/applications-utilities.svg
+apagar categories/scalable/applications-versioncontrol.svg
+apagar categories/scalable/applications-viewers.svg
+apagar categories/scalable/applications-webbrowsers.svg

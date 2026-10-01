@@ -1,0 +1,17 @@
+{
+    "KPackageStructure": "Plasma/Theme",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Leonardo Borges"
+            }
+        ],
+        "Description": "Windows 98 style Plasma theme - gray beveled panel and taskbar",
+        "Id": "Win98",
+        "License": "GPL-3.0-or-later",
+        "Name": "Windows 98",
+        "Version": "1.0",
+        "Website": "https://github.com/XxPregoxX/win98-desktop"
+    },
+    "X-Plasma-API": "5.0"
+}

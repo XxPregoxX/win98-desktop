@@ -1,0 +1,7 @@
+Ajustes do tema de ícones Chicago95 aplicados por ferramentas/fix_chicago95_ajustes.py.
+arquivos/: desenhos finais (categorias do menu, alguns ícones de app e de tipo de arquivo), tirados
+do Chicago95 (https://github.com/grassmunk/Chicago95, GPL-3.0-or-later / MIT) e do SE98
+(https://github.com/nestoris/Win98SE, GPL-2.0), alguns redimensionados com ImageMagick.
+Valem as licenças originais. ajustes.txt: links e arquivos apagados (ver o cabeçalho dele).
+
+Adjustments to the Chicago95 icon theme. Artwork taken from Chicago95 and SE98 (licenses above).

@@ -1,0 +1,17 @@
+temas/color-schemes/Win98.colors|.local/share/color-schemes/Win98.colors
+temas/aurorae/Win98|.local/share/aurorae/themes/Win98
+temas/kvantum/Win98|.config/Kvantum/Win98
+temas/plasma/Win98|.local/share/plasma/desktoptheme/Win98
+temas/icones/botao-iniciar/win98-start-button.png|.local/share/icons/win98-start-button.png
+temas/icones/botao-iniciar/win98-start-pressed.png|.local/share/icons/win98-start-pressed.png
+temas/icones/botao-iniciar/win98-start.svg|.local/share/icons/win98-start.svg
+temas/icones/botao-iniciar/win98-start-button.svg|.local/share/icons/win98-start-button.svg
+temas/sons/Win98|.local/share/sounds/Win98
+kwin/win98menuslide|.local/share/kwin/effects/win98menuslide
+plasmoides/org.kde.plasma.win98kickoff|.local/share/plasma/plasmoids/org.kde.plasma.win98kickoff
+terceiros/Chicago95|.local/share/icons/Chicago95
+terceiros/SE98|.local/share/icons/SE98
+terceiros/Chicago95_Cursor_White|.local/share/icons/Chicago95_Cursor_White
+qml|.local/share/win98-qml
+extras/env/win98-qml.sh|.config/plasma-workspace/env/win98-qml.sh
+kwin/win98windows|.local/share/kwin/effects/win98windows

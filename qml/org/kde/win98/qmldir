@@ -1,0 +1,7 @@
+module org.kde.win98
+# Estilo QtQuick Controls do tema Win98: só troca o que está listado aqui;
+# todo o resto vem do estilo padrão do KDE (org.kde.desktop).
+import org.kde.desktop auto
+ItemDelegate 1.0 ItemDelegate.qml
+Switch 1.0 Switch.qml
+SwitchDelegate 1.0 SwitchDelegate.qml

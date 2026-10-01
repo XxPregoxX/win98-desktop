@@ -1,0 +1,494 @@
+/* Tema Win98: Firefox com cara de Netscape Communicator 4 (arranjo "meio-termo").
+ *
+ * Barra de título = a do sistema (browser.tabs.inTitlebar = 0 no user.js), abas no estilo das
+ * abas do 98, uma barra com os botões do Netscape + "Endereço:" + o "N" do Netscape no lugar do
+ * menu (gira enquanto a página carrega). Tudo cinza #c0c0c0 com o relevo do 98 (98.css).
+ * Desenhos: FOXSCAPEuC (terceiros/), recortados por ferramentas/gen_firefox_netscape.py.
+ * Precisa de toolkit.legacyUserProfileCustomizations.stylesheets = true (user.js).
+ */
+
+/* botões [_][□][X] pra quando as abas ficarem na barra de título */
+@import url("titlebar-buttons.css");
+
+:root {
+  --w98-face: #c0c0c0;
+  --w98-light: #dfdfdf;
+  --w98-white: #ffffff;
+  --w98-shadow: #808080;
+  --w98-dark: #0a0a0a;
+  --w98-navy: #000080;
+  --w98-raised: inset -1px -1px var(--w98-dark), inset 1px 1px var(--w98-white), inset -2px -2px var(--w98-shadow), inset 2px 2px var(--w98-light);
+  --w98-pressed: inset -1px -1px var(--w98-white), inset 1px 1px var(--w98-dark), inset -2px -2px var(--w98-light), inset 2px 2px var(--w98-shadow);
+  --w98-window: inset -1px -1px var(--w98-dark), inset 1px 1px var(--w98-light), inset -2px -2px var(--w98-shadow), inset 2px 2px var(--w98-white);
+  --w98-field: inset -1px -1px var(--w98-white), inset 1px 1px var(--w98-shadow), inset -2px -2px var(--w98-light), inset 2px 2px var(--w98-dark);
+  /* botão de barra de ferramentas do 98/Netscape: plano, relevo fino ao passar o mouse */
+  --w98-thin-raised: inset -1px -1px var(--w98-shadow), inset 1px 1px var(--w98-white);
+  --w98-thin-sunken: inset -1px -1px var(--w98-white), inset 1px 1px var(--w98-shadow);
+
+  --toolbox-background-color: var(--w98-face) !important;
+  --toolbox-background-color-inactive: var(--w98-face) !important;
+  --toolbox-text-color: #000 !important;
+  --toolbox-text-color-inactive: #000 !important;
+  --toolbar-background-color: var(--w98-face) !important;
+  --toolbar-text-color: #000 !important;
+  --toolbarbutton-icon-fill: #000 !important;
+  --toolbarbutton-border-radius: 0 !important;
+  --toolbarbutton-background-color-hover: transparent !important;
+  --toolbarbutton-background-color-active: transparent !important;
+  --tab-background-color-selected: var(--w98-face) !important;
+  --tab-selected-textcolor: #000 !important;
+  --tab-border-radius: 0 !important;
+  --tab-min-height: 24px !important;
+  --tab-margin-block: 0px !important;
+  --tabs-navbar-separator-color: transparent !important;
+  --toolbar-field-background-color: #fff !important;
+  --toolbar-field-background-color-focus: #fff !important;
+  --toolbar-field-text-color: #000 !important;
+  --toolbar-field-text-color-focus: #000 !important;
+  --toolbar-field-border-color: transparent !important;
+  --toolbar-field-border-color-focus: transparent !important;
+  --urlbar-inner-border-radius: 0 !important;
+  /* barra mais baixa: campo de 26px numa linha de 32 (a altura dos botões) */
+  --urlbar-height: 26px !important;
+  --urlbar-container-height: 32px !important;
+  --urlbar-box-background-color: transparent !important;
+  --urlbar-box-background-color-hover: transparent !important;
+  --urlbar-box-background-color-active: transparent !important;
+  --chrome-content-separator-color: var(--w98-dark) !important;
+  --content-area-shadow: none !important;
+}
+
+/* ---------- caixa de ferramentas ---------- */
+
+#navigator-toolbox {
+  background: var(--w98-face) !important;
+  color: #000 !important;
+  border-bottom: 1px solid var(--w98-shadow) !important;
+}
+
+/* ---------- abas: as abas do 98 (98.css menu[role=tablist]) ---------- */
+
+#TabsToolbar {
+  background: var(--w98-face) !important;
+  /* borda de cima do "painel" (a barra do Netscape): a aba escolhida cobre ela */
+  box-shadow: inset 0 -1px var(--w98-white), inset 0 -2px var(--w98-light) !important;
+  padding-top: 3px !important;
+  padding-inline-start: 3px !important;
+}
+
+.tabbrowser-tab {
+  padding-inline: 0 !important;
+  position: relative;
+}
+
+.tabbrowser-tab .tab-background {
+  background: var(--w98-face) !important;
+  border-radius: 3px 3px 0 0 !important;
+  outline: none !important;
+  box-shadow: inset -1px 0 var(--w98-dark), inset 1px 1px var(--w98-light), inset -2px 0 var(--w98-shadow), inset 2px 2px var(--w98-white) !important;
+  margin-block: 2px 2px !important;
+}
+
+/* a escolhida é 2px maior pra cima e pros lados e desce até encostar na barra de baixo */
+.tabbrowser-tab[selected] {
+  z-index: 1;
+}
+.tabbrowser-tab[selected] .tab-background {
+  margin-block: 0 0 !important;
+}
+
+.tab-content {
+  padding-inline: 6px !important;
+  padding-block: 0 !important;
+  min-height: 0 !important;
+}
+
+.tab-label {
+  color: #000 !important;
+  font-weight: normal !important;
+}
+
+/* X da aba: o X da barra de título do 98, sem botão; relevo fino ao passar o mouse */
+.tab-close-button {
+  list-style-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='8' height='7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0h2v1h1v1h2V1h1V0h2v1H7v1H6v1H5v1h1v1h1v1h1v1H6V6H5V5H3v1H2v1H0V6h1V5h1V4h1V3H2V2H1V1H0V0z' fill='%23000'/%3E%3C/svg%3E") !important;
+  width: 16px !important;
+  height: 14px !important;
+  padding: 3px 4px 4px 4px !important;
+  border-radius: 0 !important;
+  background: none !important;
+  opacity: 1 !important;
+}
+.tab-close-button:hover {
+  box-shadow: var(--w98-thin-raised) !important;
+}
+.tab-close-button:hover:active {
+  box-shadow: var(--w98-thin-sunken) !important;
+  padding: 4px 3px 3px 5px !important;
+}
+
+/* grupos de abas (não existiam no 98): o rótulo vira um botão do 98 com uma amostra da cor
+   (como as das janelas de cor do 98) e o nome em preto; a cor do grupo vira uma faixa no TOPO
+   de cada aba do grupo (embaixo ela cortaria o encaixe da aba escolhida com a barra) */
+#tabbrowser-tabs[orient="horizontal"] tab-group .tab-background {
+  position: relative !important;   /* a faixa se posiciona pelo fundo da aba, não pela aba */
+}
+#tabbrowser-tabs[orient="horizontal"] tab-group .tab-group-line {
+  display: flex !important;
+  inset-block: 2px auto !important;
+  inset-inline: 2px 2px !important;
+  height: 3px !important;
+  border-radius: 0 !important;
+}
+.tab-group-label-container {
+  padding-inline: 2px !important;
+}
+.tab-group-label-container::after {
+  display: none !important;        /* a linha colorida embaixo do rótulo */
+}
+.tab-group-label-hover-highlight {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  background: none !important;
+}
+.tab-group-label {
+  background: var(--w98-face) !important;
+  color: #000 !important;
+  font-weight: normal !important;
+  border-radius: 0 !important;
+  box-shadow: var(--w98-raised) !important;
+  min-height: 22px !important;
+  line-height: 22px !important;
+  padding-inline: 6px !important;
+}
+.tab-group-label::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-inline-end: 5px;
+  vertical-align: -1px;
+  background: var(--tab-group-color);
+  box-shadow: 0 0 0 1px #000;
+}
+/* grupo sem nome: só a amostra */
+tab-group:is([label=""], [label="\200b"]) .tab-group-label::before {
+  margin-inline-end: 0;
+}
+/* recolhido, o Firefox contorna o rótulo com a cor; foco do teclado = pontilhado do 98 */
+.tab-group-label {
+  outline: none !important;
+}
+.tab-group-label:focus-visible {
+  outline: 1px dotted #000 !important;
+  outline-offset: -4px !important;
+}
+.tab-group-overflow-count-container::after {
+  display: none !important;        /* a linha colorida embaixo do "+2" */
+}
+.tab-group-label:hover:active {
+  box-shadow: var(--w98-pressed) !important;
+  padding-inline: 7px 5px !important;
+  line-height: 24px !important;
+}
+.tab-group-overflow-count {
+  color: #000 !important;
+  background: none !important;
+}
+
+/* + nova aba e lista de abas (desenhos do Mozilla clássico) */
+#tabs-newtab-button > .toolbarbutton-icon,
+#new-tab-button:not(#nav-bar #new-tab-button) > .toolbarbutton-icon,
+#alltabs-button > .toolbarbutton-badge-stack {
+  border-radius: 0 !important;
+  background: none !important;
+}
+#tabs-newtab-button,
+#TabsToolbar #new-tab-button {
+  list-style-image: url("netscape/nova-aba-normal.png") !important;
+}
+#tabs-newtab-button:hover,
+#TabsToolbar #new-tab-button:hover {
+  list-style-image: url("netscape/nova-aba-hover.png") !important;
+}
+#tabs-newtab-button:hover:active,
+#TabsToolbar #new-tab-button:hover:active {
+  list-style-image: url("netscape/nova-aba-active.png") !important;
+}
+#alltabs-button {
+  list-style-image: url("netscape/lista-abas-normal.png") !important;
+}
+#alltabs-button:hover {
+  list-style-image: url("netscape/lista-abas-hover.png") !important;
+}
+
+/* ---------- barra do Netscape ---------- */
+
+#nav-bar {
+  background: var(--w98-face) !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding-block: 2px !important;
+}
+#urlbar-container {
+  --urlbar-container-height: 32px !important;
+}
+#nav-bar .toolbarbutton-1 {
+  padding-block: 0 !important;
+}
+
+/* botões: planos, relevo fino ao passar o mouse, afundados ao clicar (como no Netscape 4) */
+:is(#nav-bar, #TabsToolbar, #PersonalToolbar) .toolbarbutton-1 > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack, .toolbarbutton-text) {
+  border-radius: 0 !important;
+  background: none !important;
+  outline: none !important;
+}
+:is(#nav-bar, #TabsToolbar, #PersonalToolbar) .toolbarbutton-1:not([disabled]):hover > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
+  box-shadow: var(--w98-thin-raised) !important;
+}
+:is(#nav-bar, #TabsToolbar, #PersonalToolbar) .toolbarbutton-1:not([disabled]):is(:hover:active, [open], [checked]) > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
+  box-shadow: var(--w98-thin-sunken) !important;
+}
+
+/* os desenhos do Netscape são 24x24: o botão continua 32x32 */
+#nav-bar :is(#back-button, #forward-button, #reload-button, #stop-button, #home-button, #print-button,
+             #history-panelmenu, #bookmarks-menu-button, #new-window-button, #nav-bar #new-tab-button,
+             #cut-button, #copy-button, #paste-button, #fullscreen-button) > .toolbarbutton-icon {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px !important;
+}
+#nav-bar .toolbarbutton-1:not([disabled]):hover:active > .toolbarbutton-icon {
+  padding: 5px 3px 3px 5px !important;
+}
+
+#back-button { list-style-image: url("netscape/back-normal.png") !important; }
+#back-button[disabled] { list-style-image: url("netscape/back-disabled.png") !important; }
+#forward-button { list-style-image: url("netscape/forward-normal.png") !important; }
+#forward-button[disabled] { list-style-image: url("netscape/forward-disabled.png") !important; }
+#reload-button { list-style-image: url("netscape/reload-normal.png") !important; }
+#stop-button { list-style-image: url("netscape/stop-normal.png") !important; }
+#home-button { list-style-image: url("netscape/home-normal.png") !important; }
+#print-button { list-style-image: url("netscape/print-normal.png") !important; }
+#history-panelmenu { list-style-image: url("netscape/history-normal.png") !important; }
+#bookmarks-menu-button { list-style-image: url("netscape/bookmarks-normal.png") !important; }
+#new-window-button { list-style-image: url("netscape/new-window-normal.png") !important; }
+#nav-bar #new-tab-button { list-style-image: url("netscape/new-tab-normal.png") !important; }
+#cut-button { list-style-image: url("netscape/cut-normal.png") !important; }
+#copy-button { list-style-image: url("netscape/copy-normal.png") !important; }
+#paste-button { list-style-image: url("netscape/paste-normal.png") !important; }
+#fullscreen-button { list-style-image: url("netscape/fullscreen-normal.png") !important; }
+
+/* o "N" do Netscape no lugar do menu ☰; gira enquanto a aba atual carrega */
+#PanelUI-menu-button {
+  list-style-image: url("netscape/throbber.png") !important;
+  padding-inline: 2px !important;
+}
+#PanelUI-menu-button .toolbarbutton-badge-stack {
+  padding: 1px !important;
+}
+#PanelUI-menu-button .toolbarbutton-icon {
+  width: 32px !important;
+  height: 32px !important;
+}
+:root:has(.tabbrowser-tab[selected][busy]) #PanelUI-menu-button,
+#PanelUI-menu-button[open] {
+  list-style-image: url("netscape/throbber-animado.gif") !important;
+}
+
+/* ---------- "Endereço:" + campo afundado ---------- */
+
+/* a barra de endereço flutua por cima do #urlbar-container (é do tamanho dele), então o rótulo
+   fica numa margem do container, fora da área que ela cobre */
+#urlbar-container {
+  position: relative !important;
+  margin-inline-start: calc(4px + 4.4em) !important;
+}
+#urlbar-container::before {
+  content: "Endereço:";
+  position: absolute;
+  inset-inline-end: calc(100% + 4px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000;
+  white-space: nowrap;
+}
+
+.urlbar-background {
+  background: #fff !important;
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: var(--w98-field) !important;
+}
+#urlbar[focused] > .urlbar-background,
+#urlbar[open] > .urlbar-background {
+  outline: none !important;
+  box-shadow: var(--w98-field) !important;
+}
+#urlbar-input {
+  color: #000 !important;
+}
+
+/* aberta, a barra não cresce (cresceria por cima do "Endereço:") */
+.urlbar[breakout][breakout-extend] {
+  margin-left: 0 !important;
+  width: var(--urlbar-width) !important;
+}
+.urlbar[breakout][breakout-extend] > .urlbar-input-container {
+  padding-inline: var(--urlbar-input-container-padding) !important;
+}
+.urlbar[breakout-extend] > .urlbar-background {
+  inset: 0 !important;
+  animation: none !important;
+}
+#urlbar,
+#urlbar * {
+  border-radius: 0 !important;
+}
+#urlbar-input::selection {
+  background-color: var(--w98-navy) !important;
+  color: #fff !important;
+}
+
+/* resultados da barra de endereço: seleção azul-marinho do 98 */
+.urlbarView-row-inner {
+  border-radius: 0 !important;
+}
+.urlbarView-row:is([selected], :hover) > .urlbarView-row-inner {
+  background: var(--w98-navy) !important;
+  color: #fff !important;
+}
+
+/* ---------- menus e painéis: janela cinza em relevo, item escolhido azul-marinho ---------- */
+
+/* regras ::part() não valem a partir do userChrome; o Firefox desenha o menu com variáveis, então
+   é por elas. O relevo do 98 (dois anéis) vai POR FORA da borda de 1px, com sombras deslocadas,
+   no espaço de --panel-box-shadow-margin; a borda fica da cor do fundo. */
+menupopup,
+panel {
+  --panel-background-color: var(--w98-face) !important;
+  --panel-text-color: #000 !important;
+  --panel-border-color: transparent !important;
+  --panel-border-radius: 0 !important;
+  --panel-box-shadow-margin: 2px !important;
+  --panel-box-shadow: -1px -1px 0 0 var(--w98-white), 1px 1px 0 0 var(--w98-shadow),
+                      -2px -2px 0 0 var(--w98-light), 2px 2px 0 0 var(--w98-dark) !important;
+  --panel-menuitem-border-radius: 0 !important;
+  --panel-separator-color: var(--w98-shadow) !important;
+  --panel-padding: 2px !important;
+}
+menupopup menuitem,
+menupopup menu {
+  border-radius: 0 !important;
+}
+menupopup :is(menuitem, menu)[_moz-menuactive]:not([disabled]),
+panel .subviewbutton:not([disabled]):hover {
+  background-color: var(--w98-navy) !important;
+  color: #fff !important;
+}
+
+/* ---------- sugestões dos campos de formulário (e-mail, busca, logins...) ---------- */
+/* a lista que abre debaixo do campo: no 98 é branca, texto preto, borda preta fina, colada no campo,
+   linha escolhida azul-marinho (igual à lista do combobox e ao autocompletar do IE). A regra de
+   cima (panel) deixava ela cinza em relevo, e o Firefox pinta ela com as cores do SITE: em site
+   escuro o texto vinha branco no cinza. color-scheme: light corta isso.
+   Cada linha é um <autocomplete-row-item> (Firefox 155), com o miolo no shadow DOM: muda pelas
+   variáveis (--space-small = recuo e vão do ícone, --button-*-hover = linha sob o mouse). */
+#PopupAutoComplete {
+  color-scheme: light !important;
+  --panel-background-color: #fff !important;
+  --panel-text-color: #000 !important;
+  --panel-border-color: #000 !important;
+  --panel-box-shadow: none !important;
+  --panel-box-shadow-margin: 0px !important;
+  --panel-padding: 0px !important;
+  --panel-separator-color: var(--w98-shadow) !important;
+}
+#PopupAutoComplete > richlistbox {
+  padding: 0 !important;
+}
+#PopupAutoComplete > richlistbox > richlistitem.autocomplete-row-item {
+  margin: 0 !important;
+}
+#PopupAutoComplete autocomplete-row-item {
+  --space-small: 2px !important;
+  --border-radius-large: 0px !important;
+  --icon-width: 16px !important;
+  --icon-height: 16px !important;
+  --button-background-color-hover: var(--w98-navy) !important;
+  --button-text-color-hover: #fff !important;
+  --button-background-color-active: var(--w98-navy) !important;
+  --button-text-color-active: #fff !important;
+  --text-color-deemphasized: var(--w98-shadow) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: #000 !important;
+}
+/* escolhida pelo teclado (setas) */
+#PopupAutoComplete autocomplete-row-item[selected] {
+  background-color: var(--w98-navy) !important;
+  color: #fff !important;
+  --text-color-deemphasized: #fff !important;
+}
+/* histórico do campo: no 98 não tinha o reloginho, é só o texto */
+#PopupAutoComplete richlistitem[originaltype="fromhistory"] > autocomplete-row-item {
+  --icon-width: 0px !important;
+  --icon-height: 0px !important;
+}
+
+/* dica amarela do 98 */
+tooltip {
+  appearance: none !important;
+  background: #ffffe1 !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 2px 4px !important;
+}
+
+/* ---------- barra de aviso (ex.: "O site parece estar com problemas?") ---------- */
+/* vira uma faixa na cor da dica do 98 (#ffffe1, a mesma das dicas do Plasma), reta, sem sombra e
+   sem a listrinha colorida da esquerda; os botões são os do 98. Os estilos dela ficam no shadow
+   DOM (::part não vale aqui): muda pelas variáveis e pelo próprio elemento. */
+notification-message[message-bar-type="infobar"],
+notification-message.infobar {
+  --info-bar-background-color: #ffffe1 !important;
+  --info-bar-background-color-configurable: #ffffe1 !important;
+  --info-bar-text-color: #000 !important;
+  --info-bar-box-shadow: none !important;
+  --message-bar-border-radius: 0 !important;
+  --message-bar-border-color: transparent !important;
+  --message-bar-text-color: #000 !important;
+  --button-border-radius: 0 !important;
+  --button-background-color-ghost-hover: transparent !important;
+  --button-background-color-ghost-active: transparent !important;
+  --icon-color: #000 !important;
+  background-color: #ffffe1 !important;
+  color: #000 !important;
+  margin: 0 !important;
+  border: none !important;
+  border-bottom: 1px solid #000 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding-block: 2px !important;
+}
+notification-message[message-bar-type="infobar"]::before,
+notification-message.infobar::before {
+  display: none !important;
+}
+notification-message .notification-button {
+  appearance: none !important;
+  background: var(--w98-face) !important;
+  color: #000 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: var(--w98-raised) !important;
+  min-height: 23px !important;
+  padding: 2px 12px !important;
+  margin: 0 !important;
+}
+notification-message .notification-button:hover:active {
+  box-shadow: var(--w98-pressed) !important;
+  padding: 3px 11px 1px 13px !important;
+}

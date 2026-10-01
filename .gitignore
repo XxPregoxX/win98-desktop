@@ -1,0 +1,24 @@
+# só na máquina de quem instalou
+backups/
+.links.local
+extras/davinci/
+extras/firefox/chrome/win98-gtk-assets
+ferramentas/app_icons_audit.txt
+# anotações de desenvolvimento (ficam só no computador do autor)
+HISTORICO.md
+PENDENCIAS.md
+PUBLICAR.md
+# pacotes de terceiros: baixados das fontes originais por ferramentas/baixar_terceiros.sh
+# (só os 2 ícones usados do Win95 +PLUS+ vão junto: o pacote não tem download direto)
+terceiros/*
+!terceiros/Win95PLUS/
+terceiros/Win95PLUS/*
+!terceiros/Win95PLUS/ORIGEM.txt
+!terceiros/Win95PLUS/icons_32x32/
+terceiros/Win95PLUS/icons_32x32/*
+!terceiros/Win95PLUS/icons_32x32/chrome.png
+!terceiros/Win95PLUS/icons_32x32/discord.png
+# lixo
+__pycache__/
+*.pyc
+*.kcache

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Win98 Startup Sound
+Exec=paplay @SONS@/startup.wav
+X-KDE-autostart-phase=2
+OnlyShowIn=KDE;
+Terminal=false
