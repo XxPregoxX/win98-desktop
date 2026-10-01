@@ -15,6 +15,27 @@ Feito por **Leonardo Borges** com a ajuda do **Claude** (Anthropic), em cima do 
 gente: ícones do Chicago95 e do SE98, desenhos do Netscape do FOXSCAPEuC, medidas do 98.css e
 outros. A lista completa, com links e licenças, está em **[CREDITOS.md](CREDITOS.md)**.
 
+## Prints
+
+| Antes (KDE Plasma 6 padrão) | Depois |
+|---|---|
+| ![Área de trabalho padrão do KDE Plasma 6](docs/prints/antes.png) | ![A mesma área de trabalho com o tema: fundo verde-azulado e barra de tarefas do Windows 98](docs/prints/depois.png) |
+
+**Menu Iniciar** com os ícones do 98, por cima do Dolphin:
+
+![Menu Iniciar aberto na categoria Sistema, com o gerenciador de arquivos Dolphin atrás](docs/prints/menu-iniciar.png)
+
+**Janelas, caixas de marcar, botões e notificação** (o Dolphin e uma janela de exemplo em Qt):
+
+![Dolphin, uma janela "Propriedades de Vídeo" com abas, caixas de marcar, botões de rádio e controle deslizante, e uma notificação no canto](docs/prints/janelas.png)
+
+**Firefox como Netscape Communicator**:
+
+![Firefox com a barra do Netscape: setas verdes, "Endereço:" e o N do Netscape](docs/prints/firefox-netscape.png)
+
+Os prints foram tirados numa sessão do KDE separada e limpa, com o tema instalado pelo próprio
+`instalar.sh`, numa tela de 1366×768.
+
 ## O que o tema muda
 
 **Janelas**
@@ -119,6 +140,7 @@ desenho (SVG do Plasma, Kvantum, Aurorae, ícones gerados) sai de scripts em `fe
 | `extras/kvantum/`, `extras/win98-startup.desktop` | Config do Kvantum, som de entrada | — |
 | `terceiros/` | Pacotes de terceiros baixados na instalação (só os 2 ícones do Win95 +PLUS+ vêm junto) | Ícones, cursor |
 | `ferramentas/` | Geradores, ajustes de ícones, download dos pacotes e testes | — |
+| `docs/prints/` | Prints do README | — |
 | `LICENSES/` | Textos das licenças | — |
 
 ## Ferramentas
@@ -130,7 +152,8 @@ Geradores (saída em `temas/`, `extras/` ou no Chicago95):
 - `gen_plasma_window.py`: janelinha dos popups (fundo, cabeçalho azul, rodapé, cores do cabeçalho).
 - `gen_plasma_buttons.py`, `gen_plasma_tooltip.py`, `gen_plasma_scrollbar.py`,
   `gen_plasma_switch.py`: botões, dica amarela, barra de rolagem e chaves do Plasma.
-- `gen_kvantum_checks.py`, `gen_kvantum_itemview.py`: caixas de marcar/rádios e itens de lista do Kvantum.
+- `gen_kvantum_checks.py`, `gen_kvantum_itemview.py`, `gen_kvantum_slider.py`: caixas de marcar/rádios,
+  itens de lista e controle deslizante do Kvantum.
 - `gen_titlebar_icons.py`: ícones window-close/minimize/maximize/restore = botões da barra de título.
 - `gen_media_tray_icons.py`: play/pause/parado da bandeja = botão do CD Player.
 - `gen_firefox_netscape.py`: recorta os desenhos do Netscape (FOXSCAPEuC) pro Firefox

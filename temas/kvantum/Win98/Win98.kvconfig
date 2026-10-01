@@ -18,8 +18,8 @@ scrollbar_in_view=false
 transient_scrollbar=false
 transient_groove=false
 slider_width=4
-slider_handle_width=11
-slider_handle_length=22
+slider_handle_width=22
+slider_handle_length=11
 center_toolbar_handle=true
 check_size=13
 textless_progressbar=false
@@ -283,8 +283,14 @@ min_width=1.0font
 min_height=1.0font
 
 [Slider]
-frame=false
-interior=false
+frame=true
+frame.element=slider
+frame.top=2
+frame.bottom=2
+frame.left=2
+frame.right=2
+interior=true
+interior.element=slider
 
 [SliderCursor]
 frame=true

@@ -69,6 +69,14 @@ Not included in the repository, but the theme would not exist without them:
 - **[Python](https://www.python.org)**, **[Node.js](https://nodejs.org)** (tests) and
   **[Fedora Linux](https://fedoraproject.org)**, where everything was made and tested.
 
+## In the screenshots
+
+- The "before" screenshot shows KDE Plasma 6's default wallpaper, **Waterfall**, by Krystian Zajdel
+  ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)).
+- The Firefox screenshot shows the Portuguese Wikipedia article
+  ["Netscape Navigator"](https://pt.wikipedia.org/wiki/Netscape_Navigator)
+  ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)), including the Netscape logo.
+
 ## Trademarks
 
 Windows and Windows 98 are trademarks of Microsoft. Netscape and Netscape Communicator are

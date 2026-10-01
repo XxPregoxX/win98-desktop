@@ -15,6 +15,27 @@ Made by **Leonardo Borges** with help from **Claude** (Anthropic), on top of the
 icons from Chicago95 and SE98, Netscape artwork from FOXSCAPEuC, measurements from 98.css and more.
 The full list, with links and licenses, is in **[CREDITS.md](CREDITS.md)**.
 
+## Screenshots
+
+| Before (stock KDE Plasma 6) | After |
+|---|---|
+| ![Stock KDE Plasma 6 desktop](docs/prints/antes.png) | ![The same desktop with the theme: teal background and Windows 98 taskbar](docs/prints/depois.png) |
+
+**Start menu** with 98 icons, over Dolphin:
+
+![Start menu open on the System category, with the Dolphin file manager behind it](docs/prints/menu-iniciar.png)
+
+**Windows, checkboxes, buttons and a notification** (Dolphin and a sample Qt window):
+
+![Dolphin, a "Display Properties" window with tabs, checkboxes, radio buttons and a slider, and a notification in the corner](docs/prints/janelas.png)
+
+**Firefox as Netscape Communicator**:
+
+![Firefox with the Netscape toolbar: green arrows, "Address:" label and the Netscape N](docs/prints/firefox-netscape.png)
+
+Screenshots were taken in a separate, clean KDE session, with the theme installed by `instalar.sh`
+itself, on a 1366×768 screen. The UI language is Portuguese (Brazil).
+
 > The project is written in Portuguese (folder names, script names and comments): `temas` = themes,
 > `ferramentas` = tools, `terceiros` = third-party, `instalar.sh` = install, `desinstalar.sh` =
 > uninstall. The Start button reads "Iniciar" (Portuguese for "Start"); change the text in
@@ -123,6 +144,7 @@ the SVG**.
 | `extras/kvantum/`, `extras/win98-startup.desktop` | Kvantum config, login sound | — |
 | `terceiros/` | Third-party packages downloaded at install time (only the 2 Win95 +PLUS+ icons ship with the repo) | Icons, cursor |
 | `ferramentas/` | Generators, icon fixes, package download and tests | — |
+| `docs/prints/` | README screenshots | — |
 | `LICENSES/` | License texts | — |
 
 ## Known limitations

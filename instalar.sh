@@ -112,6 +112,8 @@ for base in ("~/.config/mozilla/firefox", "~/.mozilla/firefox"):
             achados.add(c[s]["Default"])
         if s.startswith("Profile") and c[s].get("Default") == "1":
             achados.add(c[s]["Path"])
+    if not achados:   # nenhum marcado como padrão: vale pra todos os perfis
+        achados = {c[s]["Path"] for s in c.sections() if s.startswith("Profile") and c[s].get("Path")}
     for a in achados:
         p = a if os.path.isabs(a) else os.path.join(base, a)
         if os.path.isdir(p): print(p)

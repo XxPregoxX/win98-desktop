@@ -68,6 +68,14 @@ Não vão no repositório, mas o tema não existiria sem eles:
 - **[Python](https://www.python.org)**, **[Node.js](https://nodejs.org)** (testes) e o
   **[Fedora Linux](https://fedoraproject.org)**, onde tudo foi feito e testado.
 
+## Nos prints
+
+- O print "antes" mostra o papel de parede padrão do KDE Plasma 6, **Waterfall**, de Krystian Zajdel
+  ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)).
+- O print do Firefox mostra o artigo
+  ["Netscape Navigator" da Wikipédia](https://pt.wikipedia.org/wiki/Netscape_Navigator)
+  ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)), com o logo do Netscape.
+
 ## Marcas
 
 Windows e Windows 98 são marcas da Microsoft. Netscape e Netscape Communicator são marcas da
