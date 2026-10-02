@@ -25,7 +25,7 @@ var SLOW = 1;             // > 1 slows the slide down, for testing
 var CYCLE = false;        // test mode: ignore the pointer, cycle through all directions
 
 var SLIDE_MS = 165;       // length of the Windows 9x menu animation
-var REDO_MS = 500;        // a popup redone this soon after the app closed one appears without sliding
+var REDO_MS = 100;        // a popup redone this soon after the app closed one appears without sliding
                           // (e.g. LibreOffice's column width tooltip, recreated on every drag step)
 var TOLERANCE = 4;        // px between pointer and popup edge that still counts as "touching"
 
