@@ -25,6 +25,8 @@ var SLOW = 1;             // > 1 slows the slide down, for testing
 var CYCLE = false;        // test mode: ignore the pointer, cycle through all directions
 
 var SLIDE_MS = 165;       // length of the Windows 9x menu animation
+var REDO_MS = 500;        // a popup redone this soon after the app closed one appears without sliding
+                          // (e.g. LibreOffice's column width tooltip, recreated on every drag step)
 var TOLERANCE = 4;        // px between pointer and popup edge that still counts as "touching"
 
 var LEFT = typeof Effect.Left == "number" ? Effect.Left : 1;
@@ -130,6 +132,8 @@ function isFadingWindow(w) {
         || w.criticalNotification || w.appletPopup;
 }
 
+var lastPopupClose = {};  // windowClass -> when that app last closed a sliding popup (ms)
+
 var win98 = {
     slideIn: function (w, panelDir) {
         var frame = w.geometry;
@@ -194,6 +198,15 @@ var win98 = {
         if (!effect.grab(w, Effect.WindowAddedGrabRole)) {
             return;
         }
+        if (slide && !panelDir) {
+            var closedAt = lastPopupClose[w.windowClass];
+            if (closedAt !== undefined && Date.now() - closedAt < REDO_MS) {
+                if (DEBUG) {
+                    console.warn("win98menuslide redone popup, no slide: " + w.windowClass);
+                }
+                return;
+            }
+        }
         if (slide) {
             win98.slideIn(w, panelDir);
             // A popup that moves while sliding (e.g. LibreOffice's column width tooltip, which
@@ -218,6 +231,9 @@ var win98 = {
     },
     // Windows 98 menus vanish instantly; only the fading windows animate out.
     closed: function (w) {
+        if (isSlidingWindow(w)) {
+            lastPopupClose[w.windowClass] = Date.now();
+        }
         if (effects.hasActiveFullScreenEffect || !isFadingWindow(w) || panelDirection(w)) {
             return;
         }
