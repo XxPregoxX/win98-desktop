@@ -1,0 +1,7 @@
+PxPlus_IBM_VGA_8x16.ttf — do Oldschool PC Font Pack v2.2, de VileR (int10h.org)
+https://int10h.org/oldschool-pc-fonts/ — arquivo oldschool_pc_font_pack_v2.2_linux.zip, sem alteração.
+Licença: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/, texto em
+LICENSES/CC-BY-SA-4.0.txt). Recriação da fonte do modo texto do VGA da IBM (8x16), com acentos e
+símbolos a mais (variante "PxPlus"). Usada no Prompt do MS-DOS (Konsole).
+
+Font from VileR's Oldschool PC Font Pack v2.2 (int10h.org), unmodified, licensed CC BY-SA 4.0.

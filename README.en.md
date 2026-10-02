@@ -74,6 +74,13 @@ itself, on a 1366×768 screen. The UI language is Portuguese (Brazil).
 - White Chicago95 cursor at 32px; Liberation Sans 10; new sounds in the 98 style.
 - Teal wallpaper (#008080), the 98 default.
 
+**Konsole = MS-DOS Prompt** (`temas/konsole`)
+- 80×25 window, gray text on black with the 98 console's 16 colors, the IBM VGA font (with
+  accents), blinking underline cursor and the MS-DOS toolbar: font size, mark, copy, paste, full
+  screen and properties. No menu bar (Ctrl+Shift+M shows it).
+- `C:\HOME\LEO>` prompt and a 98-style banner showing the real system. Only in that profile: your
+  `~/.bashrc` stays the same. `cls`, `cd..` and `ver` commands.
+
 **Firefox = Netscape Communicator** (`extras/firefox`)
 - System title bar, 98 tabs, Netscape buttons (green arrows, traffic light, little house),
   "Address:" label, the Netscape "N" spinning while loading, 98 menus, 98 form suggestion list.
@@ -139,6 +146,8 @@ the SVG**.
 | `kwin/win98windows/` | Effect: open/close/minimize windows | Window animation |
 | `plasmoides/org.kde.plasma.win98kickoff/` | Modified copy of Kickoff 6.7.5 | Start menu |
 | `qml/org/kde/win98/` | QML style layer on top of KDE's style | Lists and switches in QML apps |
+| `temas/konsole/` | MS-DOS Prompt profile, colors, prompt and toolbar | Konsole |
+| `temas/fontes/` | PxPlus IBM VGA 8x16 font | Konsole font |
 | `extras/firefox/` | `user.js` and `chrome/` (userChrome + Netscape artwork) | Firefox |
 | `extras/env/` | QML layer variables (loaded at login) | — |
 | `extras/kvantum/`, `extras/win98-startup.desktop` | Kvantum config, login sound | — |

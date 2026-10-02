@@ -22,6 +22,7 @@ Se você usar alguma parte deste projeto, mantenha estes créditos.
 | **SE98** | [nestoris](https://github.com/nestoris) | https://github.com/nestoris/Win98SE | GPL-2.0 | Ícones no estilo Windows 98 SE que tapam os buracos do Chicago95 (tipos de arquivo, pastas especiais, categorias do menu, ações) |
 | **Windows 95 +PLUS+ Icon Pack #1** | [aconfuseddragon](https://aconfuseddragon.itch.io) | https://aconfuseddragon.itch.io/windows-95-plus-1 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Ícones do Google Chrome e do Discord |
 | **FOXSCAPEuC** | Michael Walden (código com Aris) | https://mw.rat.bz/foxscapeuc/ | [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) | Botões e "N" animado do Netscape no Firefox |
+| **Oldschool PC Font Pack** (fonte PxPlus IBM VGA 8x16) | [VileR](https://int10h.org) | https://int10h.org/oldschool-pc-fonts/ | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | A fonte do modo texto do VGA da IBM, com acentos, no Prompt do MS-DOS (Konsole); vai sem alteração em `temas/fontes/` |
 | **98.css** | [Jordan Scales](https://github.com/jdan) | https://github.com/jdan/98.css | MIT | Medidas, cores e relevo 3D do Windows 98, o ✓ da caixa de marcar e o botão de rádio, recriados pelos geradores de `ferramentas/` |
 
 - O **Chicago95** e o **SE98** não vão no repositório: `ferramentas/baixar_terceiros.sh` baixa os
@@ -44,6 +45,7 @@ Se você usar alguma parte deste projeto, mantenha estes créditos.
 |---|---|---|---|---|
 | **Kickoff** (menu de aplicativos do Plasma 6.7.5) | Mikel Johnson, Noah Davis, Tanbir Jishan, Fushan Wen, Martin Gräßlin e a comunidade KDE | https://invent.kde.org/plasma/plasma-desktop (`applets/kickoff`) | GPL-2.0-or-later | Base do botão Iniciar (`plasmoides/org.kde.plasma.win98kickoff`, cópia com alterações marcadas `Win98`) |
 | **Efeitos do KWin**: Fading popups, Scale, Squash | Vlad Zahorodnii | https://invent.kde.org/plasma/kwin | GPL-2.0-or-later | Estrutura e lista de janelas ignoradas dos efeitos `kwin/win98menuslide` e `kwin/win98windows` |
+| **Barras de ferramentas do Konsole** (`konsoleui.rc`, `sessionui.rc` da versão 26.08.0) | Comunidade KDE | https://invent.kde.org/utilities/konsole | GPL-2.0-or-later | Base da barra do Prompt do MS-DOS (`temas/konsole/kxmlgui/`) |
 | **qqc2-desktop-style** (estilo QtQuick do KDE) | Marco Martin, The Qt Company e colaboradores | https://invent.kde.org/frameworks/qqc2-desktop-style | LGPL-3.0-only OR GPL-2.0-or-later | Base dos controles QML em `qml/org/kde/win98` |
 
 Cada arquivo desses mantém no cabeçalho os nomes dos autores originais (SPDX).
@@ -96,5 +98,7 @@ mantêm a licença original:
 | `temas/icones/botao-iniciar/` (a bandeira) | Chicago95 (GPL-3.0-or-later / MIT) |
 | `terceiros/Win95PLUS/` | CC BY 4.0 |
 | `extras/firefox/chrome/netscape/` | CC BY-NC-SA 3.0 |
+| `temas/fontes/` (fonte PxPlus IBM VGA 8x16) | CC BY-SA 4.0 |
+| `temas/konsole/kxmlgui/` | GPL-2.0-or-later |
 
 Os textos das licenças estão em [`LICENSES/`](LICENSES/).

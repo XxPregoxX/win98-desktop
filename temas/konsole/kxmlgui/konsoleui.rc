@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
+<!-- Cópia do konsoleui.rc do Konsole 26.08.0 (KDE, GPL-2.0-or-later) com a barra do
+     Prompt do MS-DOS do tema win98-desktop. O instalar.sh COPIA (não liga) pra
+     ~/.local/share/kxmlgui5/konsole/, porque o Konsole regrava esse arquivo. Se uma versão nova
+     do Konsole subir o número "version", o KDE ignora a cópia e volta a barra original. -->
+
+<gui name="konsole" version="20">
+    <MenuBar>
+        <Menu name="file"><text>File</text>
+            <Action name="new-window"/>
+            <Action name="new-tab"/>
+            <Action name="clone-tab"/>
+            <Separator/>
+            <DefineGroup name="session-operations"/>
+            <Separator/>
+            <DefineGroup name="session-tab-operations"/>
+            <Action name="close-window"/>
+        </Menu>
+        <Menu name="edit"><text>Edit</text>
+            <DefineGroup name="session-edit-operations"/>
+        </Menu>
+        <Menu name="view"><text>View</text>
+            <Menu name="view-split"><text>Split View</text>
+                <Action name="split-view-left-right"/>
+                <Action name="split-view-top-bottom"/>
+                <Action name="split-view-left-right-next-tab"/>
+                <Action name="split-view-top-bottom-next-tab"/>
+                <Action name="close-active-view"/>
+                <Action name="close-other-views"/>
+                <Action name="expand-active-view"/>
+                <Action name="shrink-active-view"/>
+                <Action name="toggle-maximize-current-view"/>
+                <Action name="equal-size-view"/>
+            </Menu>
+            <Separator/>
+            <Action name="detach-tab" />
+            <Action name="detach-view"/>
+            <Action name="save-layout"/>
+            <Action name="load-layout"/>
+            <Separator/>
+            <DefineGroup name="session-view-operations"/>
+        </Menu>
+        <Action name="bookmark"/>
+        <Menu name="settings"><text>Settings</text>
+            <DefineGroup name="session-settings"/>
+            <Action name="manage-profiles"/>
+            <Action name="show-menubar"/>
+            <Action name="window-colorscheme-menu"/>
+            <Separator/>
+            <Action name="view-full-screen"/>
+            <Separator/>
+            <Action name="configure-shortcuts"/>
+            <Action name="configure-notifications"/>
+            <Action name="configure-settings"/>
+        </Menu>
+        <Menu name="plugins">
+            <text>Plugins</text>
+            <ActionList name="plugin-submenu" />
+        </Menu>
+        <Menu name="help"><text>Help</text>
+        </Menu>
+    </MenuBar>
+    <!-- Win98: a barra da janela do Prompt do MS-DOS (tamanho da fonte | marcar, copiar, colar |
+         tela cheia | propriedades). As ações da sessão entram pelos grupos, no sessionui.rc. -->
+    <ToolBar name="mainToolBar" iconText="icononly" iconSize="16">
+        <text>Main Toolbar</text>
+        <index>0</index>
+        <DefineGroup name="dos-fonte"/>
+        <Separator/>
+        <DefineGroup name="dos-editar"/>
+        <Separator/>
+        <Action name="fullscreen"/>
+        <Separator/>
+        <DefineGroup name="dos-propriedades"/>
+    </ToolBar>
+</gui>

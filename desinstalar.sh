@@ -46,6 +46,13 @@ x gsettings reset org.gnome.desktop.interface cursor-size || true
 x gsettings reset org.gnome.desktop.sound theme-name || true
 x rm -f "$HOME/.config/autostart/win98-startup.desktop"
 
+echo "== Konsole =="
+kdel konsolerc "Desktop Entry" DefaultProfile
+kdel konsolerc MainWindow MenuBar
+kdel konsolerc KonsoleWindow RememberWindowSize
+x rm -f "$HOME/.local/share/konsole/MS-DOS.profile" "$HOME/.local/share/kxmlgui5/konsole/konsoleui.rc" \
+    "$HOME/.local/share/kxmlgui5/konsole/sessionui.rc"
+
 echo "== Janelas e efeitos (KWin) =="
 kw kwinrc org.kde.kdecoration2 library org.kde.breeze
 kw kwinrc org.kde.kdecoration2 theme Breeze

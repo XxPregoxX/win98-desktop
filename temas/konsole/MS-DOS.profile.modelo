@@ -1,0 +1,33 @@
+# Perfil "Prompt do MS-DOS" do Konsole (tema win98-desktop). O instalar.sh copia este modelo pra
+# ~/.local/share/konsole/MS-DOS.profile trocando @DOSRC@ pelo caminho do dos-bashrc (o Konsole
+# não expande ~ nem $HOME no Command).
+[Appearance]
+AntiAliasFonts=false
+BoldIntense=true
+ColorScheme=MS-DOS
+Font=PxPlus IBM VGA 8x16,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+LineSpacing=0
+UseFontLineChararacters=true
+
+[Cursor Options]
+CursorShape=2
+
+[General]
+Command=/bin/bash --rcfile @DOSRC@
+Icon=utilities-terminal
+LocalTabTitleFormat=Prompt do MS-DOS
+Name=Prompt do MS-DOS
+Parent=FALLBACK/
+RemoteTabTitleFormat=Prompt do MS-DOS - %h
+SemanticHints=0
+ShowTerminalSizeHint=false
+TerminalColumns=80
+TerminalMargin=1
+TerminalRows=25
+
+[Scrolling]
+HighlightScrolledLines=false
+ScrollBarPosition=1
+
+[Terminal Features]
+BlinkingCursorEnabled=true

@@ -49,7 +49,7 @@ ligar "$P/.links"
 
 # guarda as configuracoes do Plasma que vao mudar
 mkdir -p "$BK"
-for f in kdeglobals kwinrc kcminputrc plasma-org.kde.plasma.desktop-appletsrc Kvantum/kvantum.kvconfig; do
+for f in kdeglobals kwinrc kcminputrc konsolerc plasma-org.kde.plasma.desktop-appletsrc Kvantum/kvantum.kvconfig; do
     [ -f "$HOME/.config/$f" ] && cp "$HOME/.config/$f" "$BK/$(echo "$f" | tr / _)"
 done
 
@@ -79,6 +79,26 @@ gsettings set org.gnome.desktop.sound event-sounds true || true
 mkdir -p ~/.config/autostart
 [ -L ~/.config/autostart/win98-startup.desktop ] && rm ~/.config/autostart/win98-startup.desktop
 sed "s|@SONS@|$HOME/.local/share/sounds/Win98|" "$P/extras/win98-startup.desktop" > ~/.config/autostart/win98-startup.desktop
+
+echo "== Konsole: Prompt do MS-DOS =="
+# fonte do VGA (temas/fontes), perfil com a paleta e o prompt C:\> do DOS, barra de ferramentas do
+# MS-DOS (temas/konsole/kxmlgui) e janela de 80x25 sem barra de menu (Ctrl+Shift+M mostra)
+fc-cache -f "$HOME/.local/share/fonts" >/dev/null 2>&1 || true
+mkdir -p ~/.local/share/konsole
+perfil=~/.local/share/konsole/MS-DOS.profile
+novo="$(sed "s|@DOSRC@|$HOME/.local/share/win98-dos/bashrc|" "$P/temas/konsole/MS-DOS.profile.modelo")"
+if [ -f "$perfil" ] && [ "$(cat "$perfil")" != "$novo" ]; then cp "$perfil" "$BK/MS-DOS.profile"; fi
+printf '%s\n' "$novo" > "$perfil"
+# barra do MS-DOS: copiada (não ligada), porque o Konsole regrava esses arquivos
+mkdir -p ~/.local/share/kxmlgui5/konsole
+for rc in konsoleui.rc sessionui.rc; do
+    d=~/.local/share/kxmlgui5/konsole/$rc
+    [ -f "$d" ] && ! cmp -s "$d" "$P/temas/konsole/kxmlgui/$rc" && cp "$d" "$BK/konsole-$rc"
+    cp "$P/temas/konsole/kxmlgui/$rc" "$d"
+done
+kw konsolerc "Desktop Entry" DefaultProfile MS-DOS.profile
+kw konsolerc MainWindow MenuBar Disabled
+kw konsolerc KonsoleWindow RememberWindowSize false
 
 echo "== Janelas e efeitos (KWin) =="
 kw kwinrc org.kde.kdecoration2 library org.kde.kwin.aurorae

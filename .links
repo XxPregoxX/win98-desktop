@@ -15,3 +15,6 @@ terceiros/Chicago95_Cursor_White|.local/share/icons/Chicago95_Cursor_White
 qml|.local/share/win98-qml
 extras/env/win98-qml.sh|.config/plasma-workspace/env/win98-qml.sh
 kwin/win98windows|.local/share/kwin/effects/win98windows
+temas/konsole/MS-DOS.colorscheme|.local/share/konsole/MS-DOS.colorscheme
+temas/konsole/dos-bashrc|.local/share/win98-dos/bashrc
+temas/fontes|.local/share/fonts/win98-desktop

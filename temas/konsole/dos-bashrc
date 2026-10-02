@@ -1,0 +1,33 @@
+# Prompt do MS-DOS (tema win98-desktop): usado só pelo perfil "Prompt do MS-DOS" do Konsole
+# (bash --rcfile). Carrega o ~/.bashrc de sempre e só muda a cara: a abertura e o prompt C:\>.
+# Pra não mostrar a abertura: export WIN98_DOS_SEM_ABERTURA=1 no ~/.bashrc.
+
+[ -f ~/.bashrc ] && . ~/.bashrc
+
+# abertura, no formato da do Windows 98 ("Microsoft(R) Windows 98 / (C)Copyright..."), mas com o
+# sistema de verdade
+if [ -z "${WIN98_DOS_SEM_ABERTURA:-}" ]; then
+    __dos_nome="$( . /etc/os-release 2>/dev/null; echo "${PRETTY_NAME:-Linux}")"
+    printf '\n%s\n   Linux %s\n\n' "$__dos_nome" "$(uname -r)"
+    unset __dos_nome
+fi
+
+# prompt do DOS: a pasta atual com C:\ na frente, em maiúsculas e com barra invertida
+# (/home/leo/Documentos -> C:\HOME\LEO\DOCUMENTOS>). No PS1 a barra invertida e o $ têm
+# significado especial, então vão escapados.
+__dos_prompt() {
+    local p="${PWD^^}"
+    p="${p//\\/\\\\}"
+    p="${p//\$/\\\$}"
+    p="${p//\//\\\\}"
+    PS1="C:${p}>"
+}
+PROMPT_COMMAND="__dos_prompt${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
+
+# comandos do DOS que não estragam nada (só se o nome estiver livre)
+__dos_livre() { ! type -t "$1" >/dev/null 2>&1; }
+__dos_livre cls && alias cls='clear'
+__dos_livre dir && alias dir='ls -la --group-directories-first'
+__dos_livre ver && alias ver='printf "\n%s [Linux %s]\n\n" "$( . /etc/os-release; echo "$PRETTY_NAME")" "$(uname -r)"'
+alias cd..='cd ..'
+unset -f __dos_livre
