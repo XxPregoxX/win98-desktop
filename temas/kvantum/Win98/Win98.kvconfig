@@ -250,7 +250,7 @@ text.margin.right=8
 text.normal.color=#000000
 text.focus.color=#ffffff
 
-[Tooltip]
+[ToolTip]
 frame=true
 frame.element=tooltip
 frame.top=1
