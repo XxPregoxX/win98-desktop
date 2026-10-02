@@ -1,9 +1,12 @@
 [%General]
+bold_active_tab=true
+active_tab_overlap=2
+joined_inactive_tabs=false
 author=Leonardo Borges
 comment=Windows 98 (feito à mão)
 x11drag=menubar_and_primary_toolbar
 alt_mnemonic=true
-left_tabs=false
+left_tabs=true
 attach_active_tab=true
 mirror_doc_tabs=true
 group_toolbar_buttons=false
@@ -133,17 +136,23 @@ indicator.size=9
 
 [Tab]
 inherits=PanelButtonCommand
-frame.element=button
-interior.element=button
+frame.element=tab
+interior.element=tab
+indicator.element=tab
+indicator.size=9
+frame.top=4
+frame.bottom=2
+frame.left=2
+frame.right=2
 frame.expansion=0
-text.margin.top=2
-text.margin.bottom=2
+text.margin.top=1
+text.margin.bottom=1
 text.margin.left=6
 text.margin.right=6
 
 [TabFrame]
 frame=true
-frame.element=button
+frame.element=tabframe
 frame.top=2
 frame.bottom=2
 frame.left=2
