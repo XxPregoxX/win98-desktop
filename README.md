@@ -156,8 +156,7 @@ desenho (SVG do Plasma, Kvantum, Aurorae, ícones gerados) sai de scripts em `fe
 ## Ferramentas
 
 Geradores (saída em `temas/`, `extras/` ou no Chicago95):
-- `gen_decoration.py`, `gen_aurorae_buttons.py`: decoração Aurorae (`decoration.svg`) e os botões
-  [_][□][X] da barra de título, pixel a pixel no tamanho exato (22×20).
+- `gen_decoration.py`: decoração Aurorae (`decoration.svg`).
 - `gen_start_button.py`: imagens do botão Iniciar (normal e afundado, 115×35).
 - `gen_group_expander.py`: setinha de "várias janelas" na barra de tarefas.
 - `gen_plasma_window.py`: janelinha dos popups (fundo, cabeçalho azul, rodapé, cores do cabeçalho).
