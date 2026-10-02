@@ -169,6 +169,8 @@ var win98 = {
             w.win98Lift = set({
                 window: w,
                 duration: 1,
+                // set() keeps the window alive by default: a closed tooltip would stay drawn forever
+                keepAlive: false,
                 animations: [{
                     type: Effect.Translation,
                     to: { value1: 0, value2: -lift }
@@ -257,6 +259,10 @@ var win98 = {
     },
     // Windows 98 menus vanish instantly; only the fading windows animate out.
     closed: function (w) {
+        if (w.win98Lift) {
+            cancel(w.win98Lift);
+            delete w.win98Lift;
+        }
         if (effects.hasActiveFullScreenEffect || !isFadingWindow(w) || panelDirection(w)) {
             return;
         }
