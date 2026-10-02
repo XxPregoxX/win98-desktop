@@ -11,7 +11,8 @@ selecionada. No 98 (98.css, menu[role=tablist]):
   na frente das vizinhas (active_tab_overlap) e sem a linha do painel embaixo, emendada nele.
 O texto da aba selecionada fica em negrito (não é do 98: é pra achar a aba ativa de relance).
 O painel das abas ([TabFrame]) ganha a borda de janela do 98.css (--border-window-outer/inner).
-O X de fechar a aba (Konsole, Dolphin...) é o close.svg do 98.css (8x7); antes não aparecia porque
+O X de fechar a aba (Konsole, Dolphin...) é o close.svg do 98.css (8x7); com o mouse por cima
+ganha o botão em relevo do 98 em volta (como o [X] da barra de título) e afunda ao clicar; antes não aparecia porque
 o Kvantum procurava um desenho que o tema não tinha.
 Rodar de novo é seguro: substitui tudo o que for tab-* e tabframe-*.
 """
@@ -89,11 +90,36 @@ def elemento(nome, pecas, interior, y):
     return out
 
 
-def xis(nome, cor, y):
-    corpo = "".join(f'<rect x="{x}" y="{y + 1 + i}" width="1" height="1" fill="{cor}"/>'
-                    for i, linha in enumerate(X) for x, c in enumerate(linha) if c == "#")
-    # quadrado transparente de 9x9 marca o tamanho do desenho
-    return f'<g id="{nome}"><rect x="0" y="{y}" width="9" height="9" fill="none"/>{corpo}</g>'
+TAM_X = 14  # botão de fechar (indicator.size): cabe o relevo do 98 em volta do X de 8x7
+
+
+def botao(afundado):
+    """relevo do botão do 98.css num quadrado TAM_X (afundado = invertido), como o [X] da barra de título"""
+    n, px = TAM_X, {}
+    fora_cl, dentro_cl, dentro_es, fora_es = ("K", "G", "D", "W") if afundado else ("W", "D", "G", "K")
+    for y in range(n):
+        for x in range(n):
+            if x == n - 1 or y == n - 1: c = fora_es
+            elif x == 0 or y == 0: c = fora_cl
+            elif x == n - 2 or y == n - 2: c = dentro_es
+            elif x == 1 or y == 1: c = dentro_cl
+            else: c = "F"
+            px[x, y] = c
+    return px
+
+
+def xis(nome, cor, y, relevo=None):
+    """X do 98.css (8x7) no meio de um quadrado TAM_X; com relevo = botão em volta (hover/clique)"""
+    partes = [f'<rect x="0" y="{y}" width="{TAM_X}" height="{TAM_X}" fill="none"/>']
+    desloca = 0
+    if relevo is not None:
+        for (x, yy), c in sorted(botao(relevo).items()):
+            partes.append(f'<rect x="{x}" y="{y + yy}" width="1" height="1" fill="{COR[c]}"/>')
+        desloca = 1 if relevo else 0          # afundado: o X desce 1px, como no 98
+    x0, y0 = (TAM_X - 8) // 2 + desloca, (TAM_X - 7) // 2 + desloca
+    partes += [f'<rect x="{x0 + x}" y="{y + y0 + i}" width="1" height="1" fill="{cor}"/>'
+               for i, linha in enumerate(X) for x, c in enumerate(linha) if c == "#"]
+    return f'<g id="{nome}">' + "".join(partes) + "</g>"
 
 
 svg = SVG.read_text()
@@ -111,11 +137,13 @@ for suf in ("", "-inactive"):
                           ("toggled", SELECIONADA)):
         out += elemento(f"floating-tab-{estado}{suf}", pecas, "F", y)
         y += 12
-    for estado in ("normal", "focused", "pressed", "toggled", "toggledFocused", "toggledPressed"):
-        out.append(xis(f"tab-close-{estado}{suf}", COR["K"], y))
-        y += 12
+    # mouse por cima: botão em relevo atrás do X; clicando: afundado
+    for estado, relevo in (("normal", None), ("focused", False), ("pressed", True), ("toggled", None),
+                           ("toggledFocused", False), ("toggledPressed", True)):
+        out.append(xis(f"tab-close-{estado}{suf}", COR["K"], y, relevo))
+        y += TAM_X + 2
     out.append(xis(f"tab-close-disabled{suf}", COR["G"], y))
-    y += 12
+    y += TAM_X + 2
     for estado in ("normal", "focused", "disabled"):
         out += elemento(f"tabframe-{estado}{suf}", PAINEL, "T", y)
         y += 12
@@ -125,7 +153,7 @@ SVG.write_text(svg)
 
 cfg = CFG.read_text()
 tab = ("[Tab]\ninherits=PanelButtonCommand\nframe.element=tab\ninterior.element=tab\nindicator.element=tab\n"
-       "indicator.size=9\nframe.top=4\nframe.bottom=2\nframe.left=2\nframe.right=2\nframe.expansion=0\n"
+       "indicator.size=14\nframe.top=4\nframe.bottom=2\nframe.left=2\nframe.right=2\nframe.expansion=0\n"
        "text.margin.top=1\ntext.margin.bottom=1\ntext.margin.left=6\ntext.margin.right=6\n")
 cfg = re.sub(r"\[Tab\]\n.*?(?=\n\[)", tab, cfg, count=1, flags=re.S)
 cfg = re.sub(r"(\[TabFrame\]\n(?:.*\n)*?)frame\.element=\w+", r"\1frame.element=tabframe", cfg, count=1)
