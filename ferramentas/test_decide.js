@@ -2,8 +2,9 @@ const fs = require("fs"), vm = require("vm");
 const src = fs.readFileSync(process.env.HOME + "/.local/share/kwin/effects/win98menuslide/contents/code/main.js", "utf8");
 const sig = { connect() {} };
 const ctx = { Effect: { Left: 1, Top: 2, Right: 4, Bottom: 8 }, QEasingCurve: {}, console,
-  effects: { windowAdded: sig, windowClosed: sig, windowDataChanged: sig }, effect: {} };
-vm.runInNewContext(src + "\nthis.decide = decide;", ctx);
+  effects: { windowAdded: sig, windowClosed: sig, windowDataChanged: sig,
+    cursorPos: { x: 0, y: 0 } }, effect: {} };
+vm.runInNewContext(src + "\nthis.decide = decide; this.tooltipLift = tooltipLift;", ctx);
 const R = (x, y, w, h) => ({ x, y, width: w, height: h }), P = (x, y) => ({ x, y });
 const cases = [
   ["contexto abaixo-direita",        R(500,300,200,250), P(500,300), "HV L T"],
@@ -24,5 +25,22 @@ for (const [name, f, p, want] of cases) {
     (d.horiz ? (d.left ? " L" : " R") : "") + (d.vert ? (d.top ? " T" : " B") : "");
   const ok = got === want; if (!ok) fail++;
   console.log((ok ? "ok  " : "FAIL") + "  " + name.padEnd(34) + " esperado=" + want.padEnd(6) + " obtido=" + got);
+}
+// dica do Qt: desenhada com o topo 21px abaixo da ponta do mouse (logo depois da seta)
+const dicas = [
+  ["dica do Qt, cursor 32",           R(502,332,150,24),  P(500,300), 11],
+  ["dica do Qt, cursor 36",           R(502,336,150,24),  P(500,300), 15],
+  ["dica que virou pra cima",         R(502,270,150,24),  P(500,300), 0],
+  ["menu de contexto (no mouse)",     R(500,300,200,250), P(500,300), 0],
+  ["menu da barra de menus",          R(100,30,200,300),  P(130,18),  0],
+  ["dica longe na horizontal",        R(560,332,150,24),  P(500,300), 0],
+  ["menu de botão, mouse no canto",   R(498,330,150,90),  P(500,300), 0],
+  ["menu de botão, mouse na borda",   R(500,330,150,90),  P(500,300), 0],
+];
+for (const [name, f, p, want] of dicas) {
+  ctx.effects.cursorPos = p;
+  const got = ctx.tooltipLift({ geometry: f });
+  const ok = got === want; if (!ok) fail++;
+  console.log((ok ? "ok  " : "FAIL") + "  " + name.padEnd(34) + " sobe esperado=" + String(want).padEnd(3) + " obtido=" + got);
 }
 console.log(fail ? fail + " falha(s)" : "todos os casos ok");
