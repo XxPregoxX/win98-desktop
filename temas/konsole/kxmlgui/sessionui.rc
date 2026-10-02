@@ -78,13 +78,15 @@
         <Action name="switch-profile"/>
         <Action name="edit-current-profile"/>
     </Menu>
-    <!-- Win98: sem a barra da sessão; os botões vão pra barra principal, nos grupos do konsoleui.rc -->
+    <!-- Win98: sem a barra da sessão; os botões dela vão pra barra principal, nos grupos do
+         konsoleui.rc (o menu fica no canto direito, como no Konsole) -->
     <ToolBar name="mainToolBar">
-        <Action name="enlarge-font" group="dos-fonte"/>
-        <Action name="shrink-font" group="dos-fonte"/>
-        <Action name="select-mode" group="dos-editar"/>
         <Action name="edit_copy" group="dos-editar"/>
         <Action name="edit_paste" group="dos-editar"/>
+        <Action name="edit_find" group="dos-editar"/>
+        <Action name="enlarge-font" group="dos-fonte"/>
+        <Action name="shrink-font" group="dos-fonte"/>
         <Action name="edit-current-profile" group="dos-propriedades"/>
+        <Action name="hamburger_menu" group="dos-menu"/>
     </ToolBar>
 </gui>

@@ -61,17 +61,22 @@
         <Menu name="help"><text>Help</text>
         </Menu>
     </MenuBar>
-    <!-- Win98: a barra da janela do Prompt do MS-DOS (tamanho da fonte | marcar, copiar, colar |
-         tela cheia | propriedades). As ações da sessão entram pelos grupos, no sessionui.rc. -->
+    <!-- Win98: as ações do Konsole numa barra só, com ícones 16px do 98 (nova aba, dividir |
+         copiar, colar, localizar | fonte | tela cheia, propriedades ... menu). As ações da sessão
+         entram pelos grupos, no sessionui.rc. -->
     <ToolBar name="mainToolBar" iconText="icononly" iconSize="16">
         <text>Main Toolbar</text>
         <index>0</index>
-        <DefineGroup name="dos-fonte"/>
+        <Action name="new-tab"/>
+        <Action name="split-view"/>
         <Separator/>
         <DefineGroup name="dos-editar"/>
         <Separator/>
-        <Action name="fullscreen"/>
+        <DefineGroup name="dos-fonte"/>
         <Separator/>
+        <Action name="fullscreen"/>
         <DefineGroup name="dos-propriedades"/>
+        <Spacer/>
+        <DefineGroup name="dos-menu"/>
     </ToolBar>
 </gui>

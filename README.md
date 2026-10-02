@@ -71,8 +71,9 @@ Os prints foram tirados numa sessão do KDE separada e limpa, com o tema instala
 
 **Konsole = Prompt do MS-DOS** (`temas/konsole`)
 - Janela de 80×25, texto cinza no preto com as 16 cores do console do 98, fonte do VGA da IBM
-  (com acentos), cursor sublinhado piscando e a barra do MS-DOS: tamanho da fonte, marcar, copiar,
-  colar, tela cheia e propriedades. Sem barra de menu (Ctrl+Shift+M mostra).
+  (com acentos) e cursor sublinhado piscando. As opções do Konsole ficam numa barra com os ícones do
+  98: nova aba, dividir exibição, copiar, colar, localizar, tamanho da fonte, tela cheia, propriedades
+  e o menu. Sem barra de menu (Ctrl+Shift+M mostra).
 - Prompt `C:\HOME\LEO>` e uma abertura no formato da do 98, com o sistema de verdade. Só nesse
   perfil: o `~/.bashrc` continua o mesmo. Comandos `cls`, `cd..` e `ver`.
 

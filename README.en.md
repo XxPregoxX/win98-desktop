@@ -76,8 +76,9 @@ itself, on a 1366×768 screen. The UI language is Portuguese (Brazil).
 
 **Konsole = MS-DOS Prompt** (`temas/konsole`)
 - 80×25 window, gray text on black with the 98 console's 16 colors, the IBM VGA font (with
-  accents), blinking underline cursor and the MS-DOS toolbar: font size, mark, copy, paste, full
-  screen and properties. No menu bar (Ctrl+Shift+M shows it).
+  accents) and a blinking underline cursor. Konsole's actions sit in one toolbar with 98 icons: new
+  tab, split view, copy, paste, find, font size, full screen, properties and the menu. No menu bar
+  (Ctrl+Shift+M shows it).
 - `C:\HOME\LEO>` prompt and a 98-style banner showing the real system. Only in that profile: your
   `~/.bashrc` stays the same. `cls`, `cd..` and `ver` commands.
 
