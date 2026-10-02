@@ -83,7 +83,11 @@ def elemento(nome, pecas, interior, y):
     for part, grade in pecas.items():
         largura = M if part in ("-top", "-bottom") else None
         altura = M if part in ("-left", "-right") else None
-        out.append(f'<g id="{nome}{part}">' + "".join(rects(grade, x, y, largura, altura)) + "</g>")
+        # retângulo invisível com o tamanho do pedaço: sem ele, linhas transparentes (o topo das abas
+        # inativas) ficam fora dos limites do elemento e o Kvantum estica o resto (borda dobrada)
+        w = largura or len(grade[0]); h = altura or len(grade)
+        caixa = f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="none"/>'
+        out.append(f'<g id="{nome}{part}">' + caixa + "".join(rects(grade, x, y, largura, altura)) + "</g>")
         x += 10
     corpo = f'<rect x="{x}" y="{y}" width="{M}" height="{M}" fill="{COR[interior]}"/>' if COR[interior] else ""
     out.append(f'<g id="{nome}">{corpo}</g>')
