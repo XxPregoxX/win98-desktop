@@ -162,8 +162,8 @@ Geradores (saída em `temas/`, `extras/` ou no Chicago95):
 - `gen_plasma_window.py`: janelinha dos popups (fundo, cabeçalho azul, rodapé, cores do cabeçalho).
 - `gen_plasma_buttons.py`, `gen_plasma_tooltip.py`, `gen_plasma_scrollbar.py`,
   `gen_plasma_switch.py`: botões, dica amarela, barra de rolagem e chaves do Plasma.
-- `gen_kvantum_checks.py`, `gen_kvantum_itemview.py`, `gen_kvantum_slider.py`: caixas de marcar/rádios,
-  itens de lista e controle deslizante do Kvantum.
+- `gen_kvantum_checks.py`, `gen_kvantum_itemview.py`, `gen_kvantum_slider.py`, `gen_kvantum_tabs.py`:
+  caixas de marcar/rádios, itens de lista, controle deslizante e abas (com o X de fechar) do Kvantum.
 - `gen_titlebar_icons.py`: ícones window-close/minimize/maximize/restore = botões da barra de título.
 - `gen_media_tray_icons.py`: play/pause/parado da bandeja = botão do CD Player.
 - `gen_firefox_netscape.py`: recorta os desenhos do Netscape (FOXSCAPEuC) pro Firefox
