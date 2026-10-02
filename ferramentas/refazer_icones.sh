@@ -5,7 +5,8 @@
 set -euo pipefail
 F="$(cd "$(dirname "$0")" && pwd)"
 for s in fix_special_folders.py fix_mime_icons.py fix_action_icons.py gen_titlebar_icons.py \
-         fix_chrome_icon.py fix_app_icons.py gen_media_tray_icons.py fix_chicago95_ajustes.py; do
+         fix_chrome_icon.py fix_app_icons.py gen_media_tray_icons.py gen_folder_colors.py \
+         fix_chicago95_ajustes.py; do
     echo "== $s"; python3 "$F/$s"
 done
 gtk-update-icon-cache -f -q "$HOME/.local/share/icons/Chicago95/" || true

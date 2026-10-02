@@ -166,6 +166,8 @@ Pacotes de terceiros e ajustes de ícones (mexem em `terceiros/Chicago95`):
 - `fix_special_folders.py`, `fix_mime_icons.py`: pastas especiais e tipos de arquivo.
 - `fix_action_icons.py`: ícones de botão que o KDE confundia com tipo de arquivo (`--auditar`).
 - `fix_chrome_icon.py`, `fix_app_icons.py`: Chrome e apps que saíam modernos.
+- `gen_folder_colors.py`: pastas coloridas (a pasta do Chicago95 em outras cores) e temáticas do SE98
+  pro "Criar nova pasta" do Dolphin.
 - `fix_chicago95_ajustes.py`: categorias do menu, links `-symbolic` e o resto dos ajustes à mão.
 - `audit_mime_icons.py`: levantamento dos ícones de tipo de arquivo.
 
