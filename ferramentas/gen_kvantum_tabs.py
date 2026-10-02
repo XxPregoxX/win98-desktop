@@ -6,6 +6,7 @@ selecionada. No 98 (98.css, menu[role=tablist]):
 - aba: borda de 2px — cinza-claro #dfdfdf por fora e branco por dentro em cima/esquerda, preto
   #0a0a0a por fora e cinza #808080 por dentro à direita —, cantos de cima arredondados e sem
   borda embaixo; embaixo dela passa a borda de cima do painel (#dfdfdf, branco);
+- no modo documento (Konsole), sem painel embaixo, as inativas não têm a linha dele (floating-tab-*);
 - aba selecionada: 2px mais alta (as outras ficam 2px mais baixas: 2px transparentes em cima),
   na frente das vizinhas (active_tab_overlap) e sem a linha do painel embaixo, emendada nele.
 O texto da aba selecionada fica em negrito (não é do 98: é pra achar a aba ativa de relance).
@@ -40,6 +41,10 @@ INATIVA = {
     # a borda de cima do painel passando embaixo da aba
     "-bottomleft": ["DD", "WW"], "-bottom": ["D", "W"], "-bottomright": ["DD", "WW"],
 }
+# modo documento (Konsole, abas sem painel embaixo): o Kvantum usa os "floating-tab-*". Sem painel,
+# a linha dele embaixo das inativas ficava solta: elas terminam com as laterais descendo até o fim.
+FLUTUANTE_INATIVA = dict(INATIVA, **{"-bottomleft": ["DW", "DW"], "-bottom": ["F", "F"],
+                                      "-bottomright": ["GK", "GK"]})
 # painel das abas: borda de janela do 98.css (fora: claro em cima/esq, preto embaixo/dir;
 # dentro: branco em cima/esq, cinza embaixo/dir)
 PAINEL = {
@@ -92,7 +97,7 @@ def xis(nome, cor, y):
 
 
 svg = SVG.read_text()
-svg = re.sub(r'<g id="tab(?:frame)?-[A-Za-z-]+">.*?</g>\n?', "", svg)
+svg = re.sub(r'<g id="(?:floating-)?tab(?:frame)?-[A-Za-z-]+">.*?</g>\n?', "", svg)
 m = re.search(r'<!-- tabs98-top=(\d+) -->', svg)
 altura_svg = int(re.search(r'<svg [^>]*height="(\d+)"', svg).group(1))
 top = int(m.group(1)) if m else altura_svg
@@ -101,6 +106,10 @@ y = top
 for suf in ("", "-inactive"):
     for estado, pecas in (("normal", INATIVA), ("focused", INATIVA), ("toggled", SELECIONADA)):
         out += elemento(f"tab-{estado}{suf}", pecas, "F", y)
+        y += 12
+    for estado, pecas in (("normal", FLUTUANTE_INATIVA), ("focused", FLUTUANTE_INATIVA),
+                          ("toggled", SELECIONADA)):
+        out += elemento(f"floating-tab-{estado}{suf}", pecas, "F", y)
         y += 12
     for estado in ("normal", "focused", "pressed", "toggled", "toggledFocused", "toggledPressed"):
         out.append(xis(f"tab-close-{estado}{suf}", COR["K"], y))
