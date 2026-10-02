@@ -466,12 +466,20 @@ notification-message.infobar {
   --icon-color: #000 !important;
   background-color: #ffffe1 !important;
   color: #000 !important;
-  margin: 0 !important;
+  margin-inline: 0 !important;
+  margin-bottom: 0 !important;
   border: none !important;
   border-bottom: 1px solid #000 !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   padding-block: 2px !important;
+}
+/* margem de cima zerada SÓ enquanto a barra está aberta: pra fechar, o Firefox põe margin-top
+   negativa no style da barra e só tira ela da página quando essa transição termina. Travar a
+   margem com !important deixava a barra invisível, ocupando o espaço pra sempre. */
+notification-message[message-bar-type="infobar"]:not([style*="margin-top"]),
+notification-message.infobar:not([style*="margin-top"]) {
+  margin-top: 0 !important;
 }
 notification-message[message-bar-type="infobar"]::before,
 notification-message.infobar::before {
