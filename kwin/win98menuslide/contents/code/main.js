@@ -149,6 +149,9 @@ var win98 = {
             window: w,
             duration: duration,
             curve: QEasingCurve.Linear,
+            // a popup closed mid-slide vanishes at once (like Windows 98 menus), instead of
+            // being kept on screen until the slide ends
+            keepAlive: false,
             animations: [{
                 type: Effect.Clip,
                 sourceAnchor: anchor,
@@ -193,6 +196,22 @@ var win98 = {
         }
         if (slide) {
             win98.slideIn(w, panelDir);
+            // A popup that moves while sliding (e.g. LibreOffice's column width tooltip, which
+            // follows the drag) would leave stale slide frames behind: stop the slide and repaint.
+            // KWin 6: this signal lives on each window, not on "effects".
+            if (!w.win98Watched && w.windowFrameGeometryChanged && w.windowFrameGeometryChanged.connect) {
+                w.win98Watched = true;
+                w.windowFrameGeometryChanged.connect(function () {
+                    if (w.win98Slide) {
+                        if (DEBUG) {
+                            console.warn("win98menuslide moved while sliding: " + w.windowClass);
+                        }
+                        cancel(w.win98Slide);
+                        delete w.win98Slide;
+                        effects.addRepaintFull();
+                    }
+                });
+            }
         } else {
             win98.fadeIn(w);
         }
