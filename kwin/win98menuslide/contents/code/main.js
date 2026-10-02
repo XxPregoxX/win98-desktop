@@ -133,9 +133,49 @@ function isFadingWindow(w) {
         || w.criticalNotification || w.appletPopup;
 }
 
+var JUMP_PX = 8;          // an open popup moved at least this far went somewhere new (slides again)
 var lastPopupOpen = {};   // windowClass -> when that app last opened a sliding popup (ms)
 
 var win98 = {
+    // Popups that stay open and move. A browser reuses one tooltip/tab card and just moves it to
+    // the next tab: when it jumps to a new place, it slides in again there. One that moves in a
+    // burst (LibreOffice's column width tooltip follows the drag) must not slide: a slide
+    // interrupted by a move leaves stale frames behind, so it is stopped and the screen repainted.
+    // KWin 6: this signal lives on each window, not on "effects".
+    watchMoves: function (w) {
+        w.win98Pos = { x: w.geometry.x, y: w.geometry.y };
+        if (w.win98Watched || !w.windowFrameGeometryChanged || !w.windowFrameGeometryChanged.connect) {
+            return;
+        }
+        w.win98Watched = true;
+        w.windowFrameGeometryChanged.connect(function () {
+            var g = w.geometry;
+            var dx = w.win98Pos ? Math.abs(g.x - w.win98Pos.x) : JUMP_PX;
+            var dy = w.win98Pos ? Math.abs(g.y - w.win98Pos.y) : JUMP_PX;
+            if (dx == 0 && dy == 0) {
+                return;              // only the size changed (new text, preview loaded...)
+            }
+            // a nudge of a few px (Qt re-placing a tooltip whose text changed) is not a new place
+            var jumped = Math.max(dx, dy) >= JUMP_PX;
+            w.win98Pos = { x: g.x, y: g.y };
+            var now = Date.now();
+            var last = lastPopupOpen[w.windowClass];
+            lastPopupOpen[w.windowClass] = now;
+            var burst = last !== undefined && now - last < REDO_MS;
+            if (w.win98Slide) {
+                cancel(w.win98Slide);
+                delete w.win98Slide;
+                effects.addRepaintFull();
+            }
+            if (DEBUG) {
+                console.warn("win98menuslide popup moved: " + w.windowClass
+                    + (!jumped ? " (nudge, no slide)" : burst ? " (burst, no slide)" : " (slides again)"));
+            }
+            if (jumped && !burst && w.visible) {
+                win98.slideIn(w, null);
+            }
+        });
+    },
     slideIn: function (w, panelDir) {
         var frame = w.geometry;
         var dir = panelDir ? panelDir : CYCLE ? cycleDirections[cycleIndex++ % cycleDirections.length]
@@ -212,21 +252,8 @@ var win98 = {
         }
         if (slide) {
             win98.slideIn(w, panelDir);
-            // A popup that moves while sliding (e.g. LibreOffice's column width tooltip, which
-            // follows the drag) would leave stale slide frames behind: stop the slide and repaint.
-            // KWin 6: this signal lives on each window, not on "effects".
-            if (!w.win98Watched && w.windowFrameGeometryChanged && w.windowFrameGeometryChanged.connect) {
-                w.win98Watched = true;
-                w.windowFrameGeometryChanged.connect(function () {
-                    if (w.win98Slide) {
-                        if (DEBUG) {
-                            console.warn("win98menuslide moved while sliding: " + w.windowClass);
-                        }
-                        cancel(w.win98Slide);
-                        delete w.win98Slide;
-                        effects.addRepaintFull();
-                    }
-                });
+            if (!panelDir) {
+                win98.watchMoves(w);
             }
         } else {
             win98.fadeIn(w);
