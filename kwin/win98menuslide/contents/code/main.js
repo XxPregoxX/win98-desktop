@@ -25,8 +25,9 @@ var SLOW = 1;             // > 1 slows the slide down, for testing
 var CYCLE = false;        // test mode: ignore the pointer, cycle through all directions
 
 var SLIDE_MS = 165;       // length of the Windows 9x menu animation
-var REDO_MS = 100;        // a popup redone this soon after the app closed one appears without sliding
-                          // (e.g. LibreOffice's column width tooltip, recreated on every drag step)
+var REDO_MS = 100;        // a popup opened this soon after the app opened the previous one appears
+                          // without sliding (e.g. LibreOffice's column width tooltip, recreated on every
+                          // drag step); hovering tabs one by one is slower than this, so those still slide
 var TOLERANCE = 4;        // px between pointer and popup edge that still counts as "touching"
 
 var LEFT = typeof Effect.Left == "number" ? Effect.Left : 1;
@@ -132,7 +133,7 @@ function isFadingWindow(w) {
         || w.criticalNotification || w.appletPopup;
 }
 
-var lastPopupClose = {};  // windowClass -> when that app last closed a sliding popup (ms)
+var lastPopupOpen = {};   // windowClass -> when that app last opened a sliding popup (ms)
 
 var win98 = {
     slideIn: function (w, panelDir) {
@@ -199,8 +200,10 @@ var win98 = {
             return;
         }
         if (slide && !panelDir) {
-            var closedAt = lastPopupClose[w.windowClass];
-            if (closedAt !== undefined && Date.now() - closedAt < REDO_MS) {
+            var now = Date.now();
+            var openedAt = lastPopupOpen[w.windowClass];
+            lastPopupOpen[w.windowClass] = now;
+            if (openedAt !== undefined && now - openedAt < REDO_MS) {
                 if (DEBUG) {
                     console.warn("win98menuslide redone popup, no slide: " + w.windowClass);
                 }
@@ -231,9 +234,6 @@ var win98 = {
     },
     // Windows 98 menus vanish instantly; only the fading windows animate out.
     closed: function (w) {
-        if (isSlidingWindow(w)) {
-            lastPopupClose[w.windowClass] = Date.now();
-        }
         if (effects.hasActiveFullScreenEffect || !isFadingWindow(w) || panelDirection(w)) {
             return;
         }
