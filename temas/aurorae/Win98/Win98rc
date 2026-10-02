@@ -15,7 +15,8 @@ TitleVerticalAlignment=Center
 
 [Layout]
 # Medidas batem com decoration.svg (gen_decoration.py): laterais/base 5px (padrao do KWin),
-# topo = max(TitleHeight, ButtonHeight + ButtonMarginTop) + TitleEdgeTop + TitleEdgeBottom = 26.
+# topo = max(TitleHeight, ButtonHeight + ButtonMarginTop) + TitleEdgeTop + TitleEdgeBottom = 36.
+# Botões = o do 98.css (16x14) em 2x pixel a pixel (gen_aurorae_buttons.py): 32x28, 2px de folga.
 BorderBottom=5
 TitleEdgeTop=4
 TitleEdgeBottom=0
@@ -27,13 +28,13 @@ TitleEdgeLeftMaximized=2
 TitleEdgeRightMaximized=2
 TitleBorderLeft=3
 TitleBorderRight=3
-TitleHeight=22
-ButtonWidth=22
-ButtonHeight=20
+TitleHeight=32
+ButtonWidth=32
+ButtonHeight=28
 ButtonSpacing=0
-ExplicitButtonSpacer=2
-ButtonMarginTop=1
-ButtonMarginTopMaximized=1
+ExplicitButtonSpacer=4
+ButtonMarginTop=2
+ButtonMarginTopMaximized=2
 PaddingTop=0
 PaddingBottom=0
 PaddingLeft=0

@@ -101,7 +101,7 @@ kw konsolerc MainWindow MenuBar Disabled
 kw konsolerc KonsoleWindow RememberWindowSize false
 
 echo "== Janelas e efeitos (KWin) =="
-kw kwinrc org.kde.kdecoration2 library org.kde.kwin.aurorae
+kw kwinrc org.kde.kdecoration2 library org.kde.kwin.aurorae.v2
 kw kwinrc org.kde.kdecoration2 theme __aurorae__svg__Win98
 for e in win98menuslide win98windows; do kw kwinrc Plugins "${e}Enabled" true; done
 # substituidos pelo win98windows (abrir/fechar = desenrolar, minimizar = zoom ate o botao)

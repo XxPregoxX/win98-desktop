@@ -1,122 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="192" shape-rendering="crispEdges">
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="212" shape-rendering="crispEdges">
 <defs><linearGradient id="caption" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000080"/><stop offset="1" stop-color="#1084d0"/></linearGradient><linearGradient id="caption-inactive" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#808080"/><stop offset="1" stop-color="#c0c0c0"/></linearGradient></defs>
 <g id="decoration-topleft">
-<rect x="0" y="0" width="5" height="26" fill="#c0c0c0"/>
-<rect x="4" y="4" width="1" height="22" fill="#000080"/>
+<rect x="0" y="0" width="5" height="36" fill="#c0c0c0"/>
+<rect x="4" y="4" width="1" height="32" fill="#000080"/>
 <rect x="1" y="1" width="4" height="1" fill="#ffffff"/>
-<rect x="1" y="1" width="1" height="25" fill="#ffffff"/>
+<rect x="1" y="1" width="1" height="35" fill="#ffffff"/>
 <rect x="0" y="0" width="5" height="1" fill="#dfdfdf"/>
-<rect x="0" y="0" width="1" height="26" fill="#dfdfdf"/>
+<rect x="0" y="0" width="1" height="36" fill="#dfdfdf"/>
 </g>
 <g id="decoration-top">
-<rect x="5" y="0" width="90" height="26" fill="#c0c0c0"/>
-<rect x="5" y="4" width="90" height="22" fill="url(#caption)"/>
+<rect x="5" y="0" width="90" height="36" fill="#c0c0c0"/>
+<rect x="5" y="4" width="90" height="32" fill="url(#caption)"/>
 <rect x="5" y="1" width="90" height="1" fill="#ffffff"/>
 <rect x="5" y="0" width="90" height="1" fill="#dfdfdf"/>
 </g>
 <g id="decoration-topright">
-<rect x="95" y="0" width="5" height="26" fill="#c0c0c0"/>
-<rect x="95" y="4" width="1" height="22" fill="#1084d0"/>
+<rect x="95" y="0" width="5" height="36" fill="#c0c0c0"/>
+<rect x="95" y="4" width="1" height="32" fill="#1084d0"/>
 <rect x="95" y="1" width="5" height="1" fill="#ffffff"/>
-<rect x="98" y="1" width="1" height="25" fill="#808080"/>
+<rect x="98" y="1" width="1" height="35" fill="#808080"/>
 <rect x="95" y="0" width="5" height="1" fill="#dfdfdf"/>
-<rect x="99" y="0" width="1" height="26" fill="#000000"/>
+<rect x="99" y="0" width="1" height="36" fill="#000000"/>
 </g>
 <g id="decoration-left">
-<rect x="0" y="26" width="5" height="60" fill="#c0c0c0"/>
-<rect x="1" y="26" width="1" height="60" fill="#ffffff"/>
-<rect x="0" y="26" width="1" height="60" fill="#dfdfdf"/>
+<rect x="0" y="36" width="5" height="60" fill="#c0c0c0"/>
+<rect x="1" y="36" width="1" height="60" fill="#ffffff"/>
+<rect x="0" y="36" width="1" height="60" fill="#dfdfdf"/>
 </g>
 <g id="decoration-center">
-<rect x="5" y="26" width="90" height="60" fill="#c0c0c0"/>
+<rect x="5" y="36" width="90" height="60" fill="#c0c0c0"/>
 </g>
 <g id="decoration-right">
-<rect x="95" y="26" width="5" height="60" fill="#c0c0c0"/>
-<rect x="98" y="26" width="1" height="60" fill="#808080"/>
-<rect x="99" y="26" width="1" height="60" fill="#000000"/>
+<rect x="95" y="36" width="5" height="60" fill="#c0c0c0"/>
+<rect x="98" y="36" width="1" height="60" fill="#808080"/>
+<rect x="99" y="36" width="1" height="60" fill="#000000"/>
 </g>
 <g id="decoration-bottomleft">
-<rect x="0" y="86" width="5" height="5" fill="#c0c0c0"/>
-<rect x="1" y="86" width="1" height="5" fill="#ffffff"/>
-<rect x="0" y="89" width="5" height="1" fill="#808080"/>
-<rect x="0" y="86" width="1" height="5" fill="#dfdfdf"/>
-<rect x="0" y="90" width="5" height="1" fill="#000000"/>
+<rect x="0" y="96" width="5" height="5" fill="#c0c0c0"/>
+<rect x="1" y="96" width="1" height="5" fill="#ffffff"/>
+<rect x="0" y="99" width="5" height="1" fill="#808080"/>
+<rect x="0" y="96" width="1" height="5" fill="#dfdfdf"/>
+<rect x="0" y="100" width="5" height="1" fill="#000000"/>
 </g>
 <g id="decoration-bottom">
-<rect x="5" y="86" width="90" height="5" fill="#c0c0c0"/>
-<rect x="5" y="89" width="90" height="1" fill="#808080"/>
-<rect x="5" y="90" width="90" height="1" fill="#000000"/>
+<rect x="5" y="96" width="90" height="5" fill="#c0c0c0"/>
+<rect x="5" y="99" width="90" height="1" fill="#808080"/>
+<rect x="5" y="100" width="90" height="1" fill="#000000"/>
 </g>
 <g id="decoration-bottomright">
-<rect x="95" y="86" width="5" height="5" fill="#c0c0c0"/>
-<rect x="95" y="89" width="5" height="1" fill="#808080"/>
-<rect x="98" y="86" width="1" height="5" fill="#808080"/>
-<rect x="95" y="90" width="5" height="1" fill="#000000"/>
-<rect x="99" y="86" width="1" height="5" fill="#000000"/>
+<rect x="95" y="96" width="5" height="5" fill="#c0c0c0"/>
+<rect x="95" y="99" width="5" height="1" fill="#808080"/>
+<rect x="98" y="96" width="1" height="5" fill="#808080"/>
+<rect x="95" y="100" width="5" height="1" fill="#000000"/>
+<rect x="99" y="96" width="1" height="5" fill="#000000"/>
 </g>
 <g id="decoration-inactive-topleft">
-<rect x="0" y="101" width="5" height="26" fill="#c0c0c0"/>
-<rect x="4" y="105" width="1" height="22" fill="#808080"/>
-<rect x="1" y="102" width="4" height="1" fill="#ffffff"/>
-<rect x="1" y="102" width="1" height="25" fill="#ffffff"/>
-<rect x="0" y="101" width="5" height="1" fill="#dfdfdf"/>
-<rect x="0" y="101" width="1" height="26" fill="#dfdfdf"/>
+<rect x="0" y="111" width="5" height="36" fill="#c0c0c0"/>
+<rect x="4" y="115" width="1" height="32" fill="#808080"/>
+<rect x="1" y="112" width="4" height="1" fill="#ffffff"/>
+<rect x="1" y="112" width="1" height="35" fill="#ffffff"/>
+<rect x="0" y="111" width="5" height="1" fill="#dfdfdf"/>
+<rect x="0" y="111" width="1" height="36" fill="#dfdfdf"/>
 </g>
 <g id="decoration-inactive-top">
-<rect x="5" y="101" width="90" height="26" fill="#c0c0c0"/>
-<rect x="5" y="105" width="90" height="22" fill="url(#caption-inactive)"/>
-<rect x="5" y="102" width="90" height="1" fill="#ffffff"/>
-<rect x="5" y="101" width="90" height="1" fill="#dfdfdf"/>
+<rect x="5" y="111" width="90" height="36" fill="#c0c0c0"/>
+<rect x="5" y="115" width="90" height="32" fill="url(#caption-inactive)"/>
+<rect x="5" y="112" width="90" height="1" fill="#ffffff"/>
+<rect x="5" y="111" width="90" height="1" fill="#dfdfdf"/>
 </g>
 <g id="decoration-inactive-topright">
-<rect x="95" y="101" width="5" height="26" fill="#c0c0c0"/>
-<rect x="95" y="105" width="1" height="22" fill="#c0c0c0"/>
-<rect x="95" y="102" width="5" height="1" fill="#ffffff"/>
-<rect x="98" y="102" width="1" height="25" fill="#808080"/>
-<rect x="95" y="101" width="5" height="1" fill="#dfdfdf"/>
-<rect x="99" y="101" width="1" height="26" fill="#000000"/>
+<rect x="95" y="111" width="5" height="36" fill="#c0c0c0"/>
+<rect x="95" y="115" width="1" height="32" fill="#c0c0c0"/>
+<rect x="95" y="112" width="5" height="1" fill="#ffffff"/>
+<rect x="98" y="112" width="1" height="35" fill="#808080"/>
+<rect x="95" y="111" width="5" height="1" fill="#dfdfdf"/>
+<rect x="99" y="111" width="1" height="36" fill="#000000"/>
 </g>
 <g id="decoration-inactive-left">
-<rect x="0" y="127" width="5" height="60" fill="#c0c0c0"/>
-<rect x="1" y="127" width="1" height="60" fill="#ffffff"/>
-<rect x="0" y="127" width="1" height="60" fill="#dfdfdf"/>
+<rect x="0" y="147" width="5" height="60" fill="#c0c0c0"/>
+<rect x="1" y="147" width="1" height="60" fill="#ffffff"/>
+<rect x="0" y="147" width="1" height="60" fill="#dfdfdf"/>
 </g>
 <g id="decoration-inactive-center">
-<rect x="5" y="127" width="90" height="60" fill="#c0c0c0"/>
+<rect x="5" y="147" width="90" height="60" fill="#c0c0c0"/>
 </g>
 <g id="decoration-inactive-right">
-<rect x="95" y="127" width="5" height="60" fill="#c0c0c0"/>
-<rect x="98" y="127" width="1" height="60" fill="#808080"/>
-<rect x="99" y="127" width="1" height="60" fill="#000000"/>
+<rect x="95" y="147" width="5" height="60" fill="#c0c0c0"/>
+<rect x="98" y="147" width="1" height="60" fill="#808080"/>
+<rect x="99" y="147" width="1" height="60" fill="#000000"/>
 </g>
 <g id="decoration-inactive-bottomleft">
-<rect x="0" y="187" width="5" height="5" fill="#c0c0c0"/>
-<rect x="1" y="187" width="1" height="5" fill="#ffffff"/>
-<rect x="0" y="190" width="5" height="1" fill="#808080"/>
-<rect x="0" y="187" width="1" height="5" fill="#dfdfdf"/>
-<rect x="0" y="191" width="5" height="1" fill="#000000"/>
+<rect x="0" y="207" width="5" height="5" fill="#c0c0c0"/>
+<rect x="1" y="207" width="1" height="5" fill="#ffffff"/>
+<rect x="0" y="210" width="5" height="1" fill="#808080"/>
+<rect x="0" y="207" width="1" height="5" fill="#dfdfdf"/>
+<rect x="0" y="211" width="5" height="1" fill="#000000"/>
 </g>
 <g id="decoration-inactive-bottom">
-<rect x="5" y="187" width="90" height="5" fill="#c0c0c0"/>
-<rect x="5" y="190" width="90" height="1" fill="#808080"/>
-<rect x="5" y="191" width="90" height="1" fill="#000000"/>
+<rect x="5" y="207" width="90" height="5" fill="#c0c0c0"/>
+<rect x="5" y="210" width="90" height="1" fill="#808080"/>
+<rect x="5" y="211" width="90" height="1" fill="#000000"/>
 </g>
 <g id="decoration-inactive-bottomright">
-<rect x="95" y="187" width="5" height="5" fill="#c0c0c0"/>
-<rect x="95" y="190" width="5" height="1" fill="#808080"/>
-<rect x="98" y="187" width="1" height="5" fill="#808080"/>
-<rect x="95" y="191" width="5" height="1" fill="#000000"/>
-<rect x="99" y="187" width="1" height="5" fill="#000000"/>
+<rect x="95" y="207" width="5" height="5" fill="#c0c0c0"/>
+<rect x="95" y="210" width="5" height="1" fill="#808080"/>
+<rect x="98" y="207" width="1" height="5" fill="#808080"/>
+<rect x="95" y="211" width="5" height="1" fill="#000000"/>
+<rect x="99" y="207" width="1" height="5" fill="#000000"/>
 </g>
 <g id="decoration-maximized-center">
-<rect x="110" y="0" width="60" height="22" fill="url(#caption)"/>
+<rect x="110" y="0" width="60" height="32" fill="url(#caption)"/>
 </g>
 <g id="decoration-maximized-inactive-center">
-<rect x="110" y="30" width="60" height="22" fill="url(#caption-inactive)"/>
+<rect x="110" y="30" width="60" height="32" fill="url(#caption-inactive)"/>
 </g>
 <rect id="hint-stretch-borders" x="110" y="60" width="1" height="1" fill="none"/>
-<rect id="hint-top-margin" x="180" y="0" width="1" height="26" fill="none"/>
+<rect id="hint-top-margin" x="180" y="0" width="1" height="36" fill="none"/>
 <rect id="hint-bottom-margin" x="182" y="0" width="1" height="5" fill="none"/>
 <rect id="hint-left-margin" x="184" y="0" width="5" height="1" fill="none"/>
 <rect id="hint-right-margin" x="184" y="4" width="5" height="1" fill="none"/>
