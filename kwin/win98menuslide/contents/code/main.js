@@ -27,14 +27,6 @@ var CYCLE = false;        // test mode: ignore the pointer, cycle through all di
 var SLIDE_MS = 165;       // length of the Windows 9x menu animation
 var TOLERANCE = 4;        // px between pointer and popup edge that still counts as "touching"
 
-// Qt places a tooltip a whole cursor height below the pointer (QTipLabel::placeTip: pointer +
-// (2, cursor size)), so with a 32px cursor whose arrow is only ~19px tall it floats far below
-// the arrow. Windows 98 put it right under the arrow: such tooltips are drawn moved up so that
-// their top sits TOOLTIP_GAP px below the pointer. Only the drawing moves (tooltips take no input).
-var TOOLTIP_GAP = 21;     // arrow height (19px) + 2
-var QT_TIP_MIN = 24;      // range of cursor sizes the Qt rule is recognised for
-var QT_TIP_MAX = 48;
-
 var LEFT = typeof Effect.Left == "number" ? Effect.Left : 1;
 var TOP = typeof Effect.Top == "number" ? Effect.Top : 2;
 var RIGHT = typeof Effect.Right == "number" ? Effect.Right : 4;
@@ -138,49 +130,7 @@ function isFadingWindow(w) {
         || w.criticalNotification || w.appletPopup;
 }
 
-// How far up to draw a popup placed by Qt's tooltip rule (0 if it isn't one, or if it was
-// flipped above the pointer). KWin gives Qt tooltips no window type (they are plain popups), so
-// they are told apart by position: Qt puts their left edge 2px RIGHT of the pointer. A menu
-// opened by a click can't be there (the pointer is inside the button, at or right of the menu's
-// left edge), so menus are never moved, and moving them would misplace their clicks.
-function tooltipLift(w) {
-    var frame = w.geometry;
-    var pointer = effects.cursorPos;
-    var dx = frame.x - pointer.x;
-    var dy = frame.y - pointer.y;
-    if (dx < 1 || dx > 4 || dy < QT_TIP_MIN || dy > QT_TIP_MAX) {
-        return 0;
-    }
-    return Math.max(0, dy - TOOLTIP_GAP);
-}
-
 var win98 = {
-    // Keeps a Qt tooltip drawn right under the arrow; redone when Qt moves the tooltip.
-    liftTooltip: function (w) {
-        if (w.win98Lift) {
-            cancel(w.win98Lift);
-            delete w.win98Lift;
-        }
-        var lift = tooltipLift(w);
-        if (DEBUG) {
-            console.warn("win98menuslide tooltip " + w.windowClass + " lift=" + lift);
-        }
-        if (lift > 0) {
-            w.win98Lift = set({
-                window: w,
-                duration: 1,
-                animations: [{
-                    type: Effect.Translation,
-                    to: { value1: 0, value2: -lift }
-                }]
-            });
-        }
-    },
-    geometryChanged: function (w) {
-        if (isSlidingWindow(w) && w.visible) {
-            win98.liftTooltip(w);
-        }
-    },
     slideIn: function (w, panelDir) {
         var frame = w.geometry;
         var dir = panelDir ? panelDir : CYCLE ? cycleDirections[cycleIndex++ % cycleDirections.length]
@@ -242,14 +192,6 @@ var win98 = {
             return;
         }
         if (slide) {
-            if (!panelDir) {
-                win98.liftTooltip(w);
-                // KWin 6: the geometry signal lives on each window, not on "effects"
-                if (!w.win98Watched && w.windowFrameGeometryChanged && w.windowFrameGeometryChanged.connect) {
-                    w.win98Watched = true;
-                    w.windowFrameGeometryChanged.connect(function () { win98.geometryChanged(w); });
-                }
-            }
             win98.slideIn(w, panelDir);
         } else {
             win98.fadeIn(w);
