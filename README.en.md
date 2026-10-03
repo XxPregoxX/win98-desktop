@@ -71,7 +71,8 @@ itself, on a 1366×768 screen. The UI language is Portuguese (Brazil).
 **Icons, cursor, font and sounds**
 - Chicago95 + SE98 icons, with gaps filled and modern apps getting 98 artwork (Wine, KDE
   utilities, Discord, Chrome in pixel art); brand apps like OBS keep their logo.
-- White Chicago95 cursor at 32px; Liberation Sans 10; new sounds in the 98 style.
+- White Chicago95 cursor; Liberation Sans 10; window titles in the 98 font (MS W98 UI, downloaded
+  at install time); new sounds in the 98 style.
 - Teal wallpaper (#008080), the 98 default.
 
 **Konsole = MS-DOS Prompt** (`temas/konsole`)

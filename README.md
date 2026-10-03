@@ -66,7 +66,8 @@ Os prints foram tirados numa sessão do KDE separada e limpa, com o tema instala
 **Ícones, cursor, fonte e sons**
 - Ícones Chicago95 + SE98, com buracos tapados e apps modernos ganhando desenho 98 (Wine,
   utilitários do KDE, Discord, Chrome em pixel art); apps de marca como OBS ficam com o logo.
-- Cursor Chicago95 branco em 32px; fonte Liberation Sans 10; sons novos no estilo 98.
+- Cursor Chicago95 branco; fonte Liberation Sans 10; título das janelas na fonte do 98 (MS W98 UI,
+  baixada na instalação); sons novos no estilo 98.
 - Fundo de tela verde-azulado (#008080), como o padrão do 98.
 
 **Konsole = Prompt do MS-DOS** (`temas/konsole`)

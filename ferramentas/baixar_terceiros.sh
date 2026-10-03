@@ -3,7 +3,7 @@
 # os próprios autores e licenças, ver CREDITOS.md). Cada um vem da fonte original, numa versão
 # fixa, a mesma com que o tema foi feito e testado.
 #
-#   ./ferramentas/baixar_terceiros.sh              ícones (Chicago95 + SE98) e cursor
+#   ./ferramentas/baixar_terceiros.sh              ícones (Chicago95 + SE98), cursor e a fonte do título
 #   ./ferramentas/baixar_terceiros.sh --foxscape   também o FOXSCAPEuC (só pra quem for refazer os
 #                                                  desenhos do Netscape com gen_firefox_netscape.py)
 #
@@ -19,6 +19,8 @@ TMP="$(mktemp -d)"; trap 'rm -rf "$TMP"' EXIT
 CHICAGO95_COMMIT=e89583c9a0fbc5022d099fbe6f12132a756027a8
 # SE98, de nestoris (GPL-2.0)
 SE98_COMMIT=e01de0a652679e288316ce9569c81b03042f0876
+# MS W98 UI, conversão da MS Sans Serif do Windows 98 (sem licença livre: não vai no repositório)
+MSW98UI_COMMIT=1333c17aa54f547025679ea05a37eee5a2a26429
 # FOXSCAPEuC v7, de Michael Walden (CC BY-NC-SA 3.0)
 FOXSCAPE_URL="https://mw.rat.bz/foxscapeuc/FOXSCAPEuC%202021-03-06%20v7%20Fx85.0.zip"
 FOXSCAPE_SHA256=036105e6a3d750cc9645edaf90ece9a44d8f81c88d27cca4d7dafeaf7f59ff22
@@ -56,6 +58,19 @@ if [ ! -d "$T/SE98" ]; then
     mv "$TMP/se98/SE98" "$T/"
     origem "$T/SE98" "SE98, de nestoris — https://github.com/nestoris/Win98SE" \
         "commit $SE98_COMMIT, pasta SE98" "Licença: GPL-2.0 (LICENSE do repositório)"
+fi
+
+if [ ! -d "$T/MSW98UI" ]; then
+    echo "== MS W98 UI (fonte do título das janelas) — https://github.com/MARTYR-X-LTD/ms-w98-ui"
+    mkdir -p "$TMP/msw98ui"
+    for f in TTF/MSW98UI-Bold.ttf TTF/MSW98UI-Regular.ttf README.md; do
+        curl -fL --retry 3 -# -o "$TMP/msw98ui/$(basename "$f")" \
+            "https://raw.githubusercontent.com/MARTYR-X-LTD/ms-w98-ui/$MSW98UI_COMMIT/$f"
+    done
+    mv "$TMP/msw98ui" "$T/MSW98UI"
+    origem "$T/MSW98UI" "MS W98 UI — https://github.com/MARTYR-X-LTD/ms-w98-ui (commit $MSW98UI_COMMIT)" \
+        "Conversão da MS Sans Serif (Microsoft, Windows 3.1/95/98/ME) por Lev Leontev, com correções de martyr—." \
+        "Sem licença livre declarada: fica só nesta máquina, fora do repositório."
 fi
 
 if [ "${1:-}" = "--foxscape" ] && [ ! -d "$T/FOXSCAPEuC/foxscapeuc" ]; then

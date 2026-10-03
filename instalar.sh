@@ -25,7 +25,7 @@ fi
 
 # ---------- pacotes de terceiros (icones e cursor), baixados das fontes originais ----------
 novos=0
-for d in Chicago95 SE98 Chicago95_Cursor_White; do [ -d "$P/terceiros/$d" ] || novos=1; done
+for d in Chicago95 SE98 Chicago95_Cursor_White MSW98UI; do [ -d "$P/terceiros/$d" ] || novos=1; done
 [ $novos = 1 ] && bash "$P/ferramentas/baixar_terceiros.sh"
 
 echo "== Links =="
@@ -64,7 +64,13 @@ kw kdeglobals Icons Theme Chicago95
 F="Liberation Sans,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
 for k in font menuFont toolBarFont; do kw kdeglobals General "$k" "$F"; done
 kw kdeglobals General smallestReadableFont "Liberation Sans,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
-kw kdeglobals WM activeFont "Liberation Sans,10,-1,5,700,0,0,0,0,0,0,0,0,0,0,1"
+# título das janelas: a fonte do 98 (MS W98 UI, baixada por baixar_terceiros.sh) em 14px negrito;
+# sem ela, Liberation Sans
+if [ -d "$P/terceiros/MSW98UI" ]; then
+    kw kdeglobals WM activeFont "MS W98 UI,-1,14,5,700,0,0,0,0,0,0,0,0,0,0,1"
+else
+    kw kdeglobals WM activeFont "Liberation Sans,10,-1,5,700,0,0,0,0,0,0,0,0,0,0,1"
+fi
 kw kdeglobals ToolbarIcons Size 22
 kw kdeglobals MainToolbarIcons Size 22
 kw kdeglobals KDE AnimationDurationFactor 1

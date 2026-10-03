@@ -18,3 +18,4 @@ kwin/win98windows|.local/share/kwin/effects/win98windows
 temas/konsole/MS-DOS.colorscheme|.local/share/konsole/MS-DOS.colorscheme
 temas/konsole/dos-bashrc|.local/share/win98-dos/bashrc
 temas/fontes|.local/share/fonts/win98-desktop
+terceiros/MSW98UI|.local/share/fonts/msw98ui
