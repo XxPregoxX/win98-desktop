@@ -4,9 +4,9 @@
 Os packs só têm o símbolo preto, sem o botão (em fundo azul, como na notificação, some).
 Aqui vira o botão cinza em relevo do 98.css (.title-bar-controls button, 16x14) com o
 desenho dele (icon/close.svg, minimize.svg, maximize.svg, restore.svg) na posição do CSS.
-Tamanhos: 16, 22 e 24 = o botão 16x14 do 98.css, pixel a pixel (em 22/24, centralizado: é o
-tamanho que botão "chapado" do Plasma usa, o X da notificação); 32/48 = o de 16 ampliado 2x/3x
-pixel a pixel. A barra de título (gen_aurorae_buttons.py) usa estes mesmos desenhos, em 2x.
+Tamanhos: 16 = botão 16x14 do 98.css; 22/24 = o botão da barra de título (Aurorae, 22x20,
+gen_aurorae_buttons.py), copiado pixel a pixel: é o tamanho que botão "chapado" do Plasma usa
+(X da notificação), e fica igual à barra de título; 32/48 = o de 16 ampliado 2x/3x pixel a pixel.
 Grava em terceiros/Chicago95/actions/<tam>/ (substitui links). Rodar de novo se reinstalar
 o Chicago95.
 
@@ -79,6 +79,28 @@ def button(glyph, gx, gy):
     return im
 
 
+AURORAE = C95.parent.parent.parent / "temas/aurorae/Win98"
+AURORAE_FILE = {"window-close": "close", "window-minimize": "minimize",
+                "window-maximize": "maximize", "window-restore": "restore"}
+
+
+def aurorae_button(name, w=22, h=20):
+    """botão da barra de título (já é 22x20 pixel a pixel: desenhado 1:1, sem ampliar)"""
+    import os, sys
+    os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+    from PySide6.QtCore import QRectF
+    from PySide6.QtGui import QGuiApplication, QImage, QPainter, QColor
+    from PySide6.QtSvg import QSvgRenderer
+    app = QGuiApplication.instance() or QGuiApplication(sys.argv)
+    r = QSvgRenderer(str(AURORAE / f"{AURORAE_FILE[name]}.svg"))
+    img = QImage(w, h, QImage.Format_ARGB32)
+    img.fill(QColor(0, 0, 0, 0))
+    p = QPainter(img)
+    r.render(p, "active-center", QRectF(0, 0, w, h))
+    p.end()
+    return Image.frombuffer("RGBA", (w, h), img.bits().tobytes(), "raw", "BGRA", 0, 1).copy()
+
+
 def main():
     for size in (16, 22, 24, 32, 48):
         d = C95 / str(size)
@@ -86,7 +108,10 @@ def main():
             continue
         k = max(1, size // 16)
         for name, (glyph, gx, gy) in GLYPHS.items():
-            b = button(glyph, gx, gy).resize((16 * k, 14 * k), Image.NEAREST)
+            if size in (22, 24):
+                b = aurorae_button(name)
+            else:
+                b = button(glyph, gx, gy).resize((16 * k, 14 * k), Image.NEAREST)
             icon = Image.new("RGBA", (size, size), (0, 0, 0, 0))
             icon.paste(b, ((size - b.width) // 2, (size - b.height) // 2))
             dst = d / f"{name}.png"

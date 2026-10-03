@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 # Gera a decoracao Aurorae "Win98" com medidas batendo com o que o KWin reserva:
-# laterais/base 5px, topo 36px (2 bevel + 2 face + barra de 32px: cabem os botões 32x28 do
-# gen_aurorae_buttons.py, o botão do 98 em 2x, com 2px de folga em cima e embaixo).
+# laterais/base 5px, topo 26px (2 bevel + 2 face + barra de 22px; botões 22x20 do gen_aurorae_buttons.py).
 import os, sys
 
-S, B, T = 5, 5, 36          # lateral, base, topo
-CAP_Y, CAP_H, CAP_X = 4, 32, 4   # barra: comeca na linha 4, 32px, recuada 4px das bordas
+S, B, T = 5, 5, 26          # lateral, base, topo
+CAP_Y, CAP_H, CAP_X = 4, 22, 4   # barra: comeca na linha 4, 22px, recuada 4px das bordas
 M, MID = 90, 60             # largura/altura das pecas esticaveis (tanto faz, sao esticadas)
 LT_OUT, LT_IN, BR_OUT, BR_IN, FACE = "#dfdfdf", "#ffffff", "#000000", "#808080", "#c0c0c0"
 CAPTIONS = {"": ("#000080", "#1084d0"), "-inactive": ("#808080", "#c0c0c0")}
