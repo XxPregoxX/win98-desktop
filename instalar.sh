@@ -86,7 +86,7 @@ mkdir -p ~/.config/autostart
 [ -L ~/.config/autostart/win98-startup.desktop ] && rm ~/.config/autostart/win98-startup.desktop
 sed "s|@SONS@|$HOME/.local/share/sounds/Win98|" "$P/extras/win98-startup.desktop" > ~/.config/autostart/win98-startup.desktop
 
-echo "== Konsole: Prompt do MS-DOS =="
+echo "== Konsole: Prompt de Comando =="
 # fonte do VGA (temas/fontes), perfil com a paleta e o prompt C:\> do DOS, barra de ferramentas do
 # MS-DOS (temas/konsole/kxmlgui) e janela de 80x25 sem barra de menu (Ctrl+Shift+M mostra)
 fc-cache -f "$HOME/.local/share/fonts" >/dev/null 2>&1 || true
@@ -102,6 +102,9 @@ for rc in konsoleui.rc sessionui.rc; do
     [ -f "$d" ] && ! cmp -s "$d" "$P/temas/konsole/kxmlgui/$rc" && cp "$d" "$BK/konsole-$rc"
     cp "$P/temas/konsole/kxmlgui/$rc" "$d"
 done
+# nome do programa no título: "Prompt de Comando — Konsole DOS" (tradução própria do Konsole)
+idioma="${LANG%%.*}"
+bash "$P/ferramentas/gen_konsole_nome.sh" "${idioma:-pt_BR}" "Konsole DOS" || echo "  (título do Konsole fica com o nome padrão)"
 kw konsolerc "Desktop Entry" DefaultProfile MS-DOS.profile
 kw konsolerc MainWindow MenuBar Disabled
 kw konsolerc KonsoleWindow RememberWindowSize false

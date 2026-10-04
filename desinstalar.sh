@@ -50,6 +50,7 @@ echo "== Konsole =="
 kdel konsolerc "Desktop Entry" DefaultProfile
 kdel konsolerc MainWindow MenuBar
 kdel konsolerc KonsoleWindow RememberWindowSize
+x rm -f "$HOME/.local/share/locale/${LANG%%.*}/LC_MESSAGES/konsole.mo"
 x rm -f "$HOME/.local/share/konsole/MS-DOS.profile" "$HOME/.local/share/kxmlgui5/konsole/konsoleui.rc" \
     "$HOME/.local/share/kxmlgui5/konsole/sessionui.rc"
 

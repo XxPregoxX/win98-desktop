@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
 <!-- Cópia do sessionui.rc do Konsole 26.08.0 (KDE, GPL-2.0-or-later) com os botões do
-     Prompt do MS-DOS do tema win98-desktop. -->
+     Prompt de Comando do tema win98-desktop. -->
 
 <gui name="session" version="36">
     <MenuBar>

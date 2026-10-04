@@ -1,4 +1,4 @@
-# Prompt do MS-DOS (tema win98-desktop): usado só pelo perfil "Prompt do MS-DOS" do Konsole
+# Prompt de Comando (tema win98-desktop): usado só pelo perfil "Prompt de Comando" do Konsole
 # (bash --rcfile). Carrega o ~/.bashrc de sempre e só muda a cara: a abertura e o prompt C:\>.
 # Pra não mostrar a abertura: export WIN98_DOS_SEM_ABERTURA=1 no ~/.bashrc.
 

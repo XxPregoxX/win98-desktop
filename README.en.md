@@ -75,11 +75,13 @@ itself, on a 1366×768 screen. The UI language is Portuguese (Brazil).
   at install time); new sounds in the 98 style.
 - Teal wallpaper (#008080), the 98 default.
 
-**Konsole = MS-DOS Prompt** (`temas/konsole`)
+**Konsole = Command Prompt** (`temas/konsole`)
 - 80×25 window, gray text on black with the 98 console's 16 colors, the IBM VGA font (with
   accents) and a blinking underline cursor. Konsole's actions sit in one toolbar with 98 icons: new
   tab, split view, copy, paste, find, font size, full screen, properties and the menu. No menu bar
   (Ctrl+Shift+M shows it).
+- Title "Prompt de Comando — Konsole DOS" (the program name comes from a local Konsole translation,
+  `ferramentas/gen_konsole_nome.sh`; run it again after a Konsole update).
 - `C:\HOME\LEO>` prompt and a 98-style banner showing the real system. Only in that profile: your
   `~/.bashrc` stays the same. `cls`, `cd..` and `ver` commands.
 
@@ -148,7 +150,7 @@ the SVG**.
 | `kwin/win98windows/` | Effect: open/close/minimize windows | Window animation |
 | `plasmoides/org.kde.plasma.win98kickoff/` | Modified copy of Kickoff 6.7.5 | Start menu |
 | `qml/org/kde/win98/` | QML style layer on top of KDE's style | Lists and switches in QML apps |
-| `temas/konsole/` | MS-DOS Prompt profile, colors, prompt and toolbar | Konsole |
+| `temas/konsole/` | Command Prompt profile, colors, prompt and toolbar | Konsole |
 | `temas/fontes/` | PxPlus IBM VGA 8x16 font | Konsole font |
 | `extras/firefox/` | `user.js` and `chrome/` (userChrome + Netscape artwork) | Firefox |
 | `extras/env/` | QML layer variables (loaded at login) | — |

@@ -70,11 +70,13 @@ Os prints foram tirados numa sessão do KDE separada e limpa, com o tema instala
   baixada na instalação); sons novos no estilo 98.
 - Fundo de tela verde-azulado (#008080), como o padrão do 98.
 
-**Konsole = Prompt do MS-DOS** (`temas/konsole`)
+**Konsole = Prompt de Comando** (`temas/konsole`)
 - Janela de 80×25, texto cinza no preto com as 16 cores do console do 98, fonte do VGA da IBM
   (com acentos) e cursor sublinhado piscando. As opções do Konsole ficam numa barra com os ícones do
   98: nova aba, dividir exibição, copiar, colar, localizar, tamanho da fonte, tela cheia, propriedades
   e o menu. Sem barra de menu (Ctrl+Shift+M mostra).
+- Título "Prompt de Comando — Konsole DOS" (o nome do programa vem de uma tradução própria do Konsole,
+  `ferramentas/gen_konsole_nome.sh`; rodar de novo depois de atualizar o Konsole).
 - Prompt `C:\HOME\LEO>` e uma abertura no formato da do 98, com o sistema de verdade. Só nesse
   perfil: o `~/.bashrc` continua o mesmo. Comandos `cls`, `cd..` e `ver`.
 
@@ -144,7 +146,7 @@ desenho (SVG do Plasma, Kvantum, Aurorae, ícones gerados) sai de scripts em `fe
 | `kwin/win98windows/` | Efeito: abrir/fechar/minimizar janelas | Animação das janelas |
 | `plasmoides/org.kde.plasma.win98kickoff/` | Cópia modificada do Kickoff 6.7.5 | Menu Iniciar |
 | `qml/org/kde/win98/` | Camada de estilo QML por cima do estilo do KDE | Listas e chaves em apps QML |
-| `temas/konsole/` | Perfil, cores, prompt e barra do Prompt do MS-DOS | Konsole |
+| `temas/konsole/` | Perfil, cores, prompt e barra do Prompt de Comando | Konsole |
 | `temas/fontes/` | Fonte PxPlus IBM VGA 8x16 | Fonte do Konsole |
 | `extras/firefox/` | `user.js` e `chrome/` (userChrome + desenhos do Netscape) | Firefox |
 | `extras/env/` | Variáveis da camada QML (carregadas no login) | — |

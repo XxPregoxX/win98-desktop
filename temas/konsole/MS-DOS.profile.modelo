@@ -1,4 +1,4 @@
-# Perfil "Prompt do MS-DOS" do Konsole (tema win98-desktop). O instalar.sh copia este modelo pra
+# Perfil "Prompt de Comando" do Konsole (tema win98-desktop). O instalar.sh copia este modelo pra
 # ~/.local/share/konsole/MS-DOS.profile trocando @DOSRC@ pelo caminho do dos-bashrc (o Konsole
 # não expande ~ nem $HOME no Command).
 [Appearance]
@@ -15,10 +15,10 @@ CursorShape=2
 [General]
 Command=/bin/bash --rcfile @DOSRC@
 Icon=utilities-terminal
-LocalTabTitleFormat=Prompt do MS-DOS
-Name=Prompt do MS-DOS
+LocalTabTitleFormat=Prompt de Comando
+Name=Prompt de Comando
 Parent=FALLBACK/
-RemoteTabTitleFormat=Prompt do MS-DOS - %h
+RemoteTabTitleFormat=Prompt de Comando - %h
 SemanticHints=0
 ShowTerminalSizeHint=false
 TerminalColumns=80

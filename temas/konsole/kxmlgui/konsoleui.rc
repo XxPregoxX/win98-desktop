@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
 <!-- Cópia do konsoleui.rc do Konsole 26.08.0 (KDE, GPL-2.0-or-later) com a barra do
-     Prompt do MS-DOS do tema win98-desktop. O instalar.sh COPIA (não liga) pra
+     Prompt de Comando do tema win98-desktop. O instalar.sh COPIA (não liga) pra
      ~/.local/share/kxmlgui5/konsole/, porque o Konsole regrava esse arquivo. Se uma versão nova
      do Konsole subir o número "version", o KDE ignora a cópia e volta a barra original. -->
 
